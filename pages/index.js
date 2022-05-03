@@ -1,22 +1,8 @@
-import Head from 'next/head'
-import Header from '@components/Header'
-import Footer from '@components/Footer'
-
-export default function Home() {
+export default function Landing() {
   return (
     <div className="container">
-      <Head>
-        <title>Lewitts Wedding</title>
-      </Head>
-
-      <main>
-        <Header title="Lewitts Wedding 2023" />
-        <p className="description">
-          Coming soon...
-        </p>
-      </main>
-
-      <Footer />
+      <h1 className="title">Lewitt Wedding</h1>
+      <p className="description">Coming soon...</p>
     </div>
-  )
+  );
 }
