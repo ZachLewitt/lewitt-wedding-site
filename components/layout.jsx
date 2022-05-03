@@ -35,6 +35,9 @@ export const Layout = ({ children }) => {
 const ContentWrapper = styled.div`
   padding-top: 50px;
   height: 100vh;
-  padding: 50px ${({ theme }) => theme.margin.small};
+  padding: 64px ${({ theme }) => theme.margin.medium};
   background: ${({ theme }) => theme.colors.contentBackground};
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
