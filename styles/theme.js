@@ -1,10 +1,12 @@
 export const theme = {
   colors: {
-    menuForeground: "#000",
+    menuForeground: "#616161",
     menuBackground: "#FFF",
+    contentForeground: "#313131",
     contentBackground: "#FFF",
     primaryForeground: "#FFF",
-    primaryBackground: "#6B5D3D"
+    primaryBackground: "#0351ff",
+    border: "#CCC",
   },
   fontSize: {
     extraLarge: "28px",
@@ -17,6 +19,6 @@ export const theme = {
     large: "18px",
   },
   font: {
-    serif: 'Trebuchet, Tahoma, Arial, sans-serif',
-  }
+    serif: "Trebuchet, Tahoma, Arial, sans-serif",
+  },
 };

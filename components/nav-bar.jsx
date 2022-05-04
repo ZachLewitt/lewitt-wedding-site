@@ -15,14 +15,14 @@ export const NavBar = () => {
         />
       </Bar>
       <NavMenu>
-        <RsvpLink href="/rsvp" isEnabled={isEnabled}>
+        <RsvpLink href="#rsvp" isEnabled={isEnabled}>
           RSVP
         </RsvpLink>
-        <NavItem href="#venue" isEnabled={isEnabled}>
+        <NavItem href="#ceremony" isEnabled={isEnabled}>
           Ceremony
         </NavItem>
         <NavItem href="#accommodation" isEnabled={isEnabled}>
-          Places To Stay
+          Accommodation
         </NavItem>
       </NavMenu>
     </Nav>
@@ -40,7 +40,6 @@ const Nav = styled.nav`
   display: flex;
   flex-direction: row;
   align-items: center;
-  border-bottom: 1px solid #CCC;
 
   @media only screen and (max-width: 600px) {
     flex-direction: column;
@@ -71,7 +70,7 @@ const NavItem = styled.a`
   color: ${({ theme }) => theme.colors.menuForeground};
 
   text-decoration: none;
-  font-size: ${({ theme }) => theme.fontSize.large};
+  font-size: ${({ theme }) => theme.fontSize.medium};
   font-family: ${({ theme }) => theme.font.serif};
   font-weight: bold;
   white-space: nowrap;
@@ -87,7 +86,7 @@ const HomeLink = styled.a`
   color: ${({ theme }) => theme.colors.menuForeground};
 
   text-decoration: none;
-  font-size: ${({ theme }) => theme.fontSize.large};
+  font-size: ${({ theme }) => theme.fontSize.medium};
   font-family: ${({ theme }) => theme.font.serif};
   font-weight: bold;
 `;
@@ -107,6 +106,7 @@ const RsvpLink = styled(NavItem)`
     background: ${({ theme }) => theme.colors.primaryBackground};
     padding: ${({ theme }) => theme.margin.small};
     border-radius: 4px;
+    border: none;
     min-width: 40px;
   }
 `;

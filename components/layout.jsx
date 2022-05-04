@@ -33,9 +33,8 @@ export const Layout = ({ children }) => {
 };
 
 const ContentWrapper = styled.div`
-  padding-top: 50px;
+  padding-top: 60px;
   height: 100vh;
-  padding: 64px ${({ theme }) => theme.margin.medium};
   background: ${({ theme }) => theme.colors.contentBackground};
   display: flex;
   flex-direction: column;
