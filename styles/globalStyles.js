@@ -5,7 +5,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     padding: 0;
     margin: 0;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: Trebuchet, Tahoma, Arial, sans-serif;
   }
 
   * {

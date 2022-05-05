@@ -20,5 +20,6 @@ export const theme = {
   },
   font: {
     serif: "Trebuchet, Tahoma, Arial, sans-serif",
+    sansSerif: "Georgia, 'Times New Roman', Times, serif",
   },
 };

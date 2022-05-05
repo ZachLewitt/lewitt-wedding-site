@@ -33,7 +33,7 @@ export const Layout = ({ children }) => {
 };
 
 const ContentWrapper = styled.div`
-  padding-top: 60px;
+  padding-top: 50px;
   height: 100vh;
   background: ${({ theme }) => theme.colors.contentBackground};
   display: flex;

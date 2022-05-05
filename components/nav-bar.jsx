@@ -7,23 +7,17 @@ export const NavBar = () => {
 
   return (
     <Nav>
-      <Bar>
+      <Bar isEnabled={isEnabled}>
         <HomeLink href="/home">Lewitt Wedding</HomeLink>
         <StyledHamburgerButton
           isEnabled={isEnabled}
           onClick={() => setIsEnabled(!isEnabled)}
         />
       </Bar>
-      <NavMenu>
-        <RsvpLink href="#rsvp" isEnabled={isEnabled}>
-          RSVP
-        </RsvpLink>
-        <NavItem href="#ceremony" isEnabled={isEnabled}>
-          Ceremony
-        </NavItem>
-        <NavItem href="#accommodation" isEnabled={isEnabled}>
-          Accommodation
-        </NavItem>
+      <NavMenu isEnabled={isEnabled}>
+        <RsvpLink href="#rsvp">RSVP</RsvpLink>
+        <NavItem href="#ceremony">Ceremony</NavItem>
+        <NavItem href="#accommodation">Accommodation</NavItem>
       </NavMenu>
     </Nav>
   );
@@ -36,7 +30,7 @@ const Nav = styled.nav`
   width: 100%;
   background-color: ${({ theme }) => theme.colors.menuBackground};
   margin: 0px;
-  padding: ${({ theme }) => theme.margin.medium};
+  min-height: 50px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -52,6 +46,11 @@ const Bar = styled.div`
   flex-direction: row;
   align-items: center;
   width: 100%;
+
+  @media only screen and (max-width: 600px) {
+    border-bottom: ${({ isEnabled, theme }) =>
+      isEnabled ? `1px solid ${theme.colors.border}` : "none"};
+  }
 `;
 
 const NavMenu = styled.div`
@@ -59,35 +58,31 @@ const NavMenu = styled.div`
   flex-direction: row;
   align-items: center;
   grid-gap: ${({ theme }) => theme.margin.medium};
+  margin-inline-end: ${({ theme }) => theme.margin.medium};
 
   @media only screen and (max-width: 600px) {
     flex-direction: column;
     align-items: flex-start;
+    display: ${({ isEnabled }) => (isEnabled ? "flex" : "none")};
+    margin: ${({ theme }) => theme.margin.medium};
   }
 `;
 
 const NavItem = styled.a`
   color: ${({ theme }) => theme.colors.menuForeground};
-
   text-decoration: none;
   font-size: ${({ theme }) => theme.fontSize.medium};
-  font-family: ${({ theme }) => theme.font.serif};
-  font-weight: bold;
+  font-family: ${({ theme }) => theme.font.sansSerif};
   white-space: nowrap;
-
-  @media only screen and (max-width: 600px) {
-    display: ${({ isEnabled }) => (isEnabled ? "block" : "none")};
-  }
 `;
 
 const HomeLink = styled.a`
   flex-grow: 1;
-
+  margin-inline-start: ${({ theme }) => theme.margin.medium};
   color: ${({ theme }) => theme.colors.menuForeground};
-
   text-decoration: none;
   font-size: ${({ theme }) => theme.fontSize.medium};
-  font-family: ${({ theme }) => theme.font.serif};
+  font-family: ${({ theme }) => theme.font.sansSerif};
   font-weight: bold;
 `;
 
