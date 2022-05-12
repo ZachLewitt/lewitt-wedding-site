@@ -7,7 +7,10 @@ export default function Home() {
   return (
     <>
       <section id="home">
-        <MainImage></MainImage>
+        <MainImage>
+          <h1>Zach & Kirsty</h1>
+          <p>01/08/2023</p>
+        </MainImage>
       </section>
       <Section id="ceremony">
         <SectionHeading>Ceremony</SectionHeading>

@@ -2,13 +2,12 @@ import styled from "styled-components";
 import Image from "next/image";
 import Lindos from "../public/lindos.jpg";
 
-export const MainImage = ({ ...other }) => {
+export const MainImage = ({ children, ...other }) => {
   return (
     <Container>
       <StyledImage src={Lindos} />
       <Overlay>
-        <h1>Zach & Kirsty</h1>
-        <p>01/08/2023</p>
+        { children }      
       </Overlay>
     </Container>
   );
@@ -17,7 +16,7 @@ export const MainImage = ({ ...other }) => {
 const Container = styled.div`
   position: relative;
   width: 100%;
-  color: #FFF;
+  color: #fff;
 `;
 
 const Overlay = styled.div`

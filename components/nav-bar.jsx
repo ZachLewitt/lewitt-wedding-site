@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useState } from "react";
 import styled from "styled-components";
 import { HamburgerButton } from "./hamburger-button";
@@ -6,18 +7,30 @@ export const NavBar = () => {
   const [isEnabled, setIsEnabled] = useState(false);
 
   return (
-    <Nav>
+    <Nav
+      onClick={() => {
+        if (isEnabled) setIsEnabled(false);
+      }}
+    >
       <Bar isEnabled={isEnabled}>
-        <HomeLink href="/home">Lewitt Wedding</HomeLink>
+        <Link href="/home">
+          <HomeLink>Lewitt Wedding</HomeLink>
+        </Link>
         <StyledHamburgerButton
           isEnabled={isEnabled}
           onClick={() => setIsEnabled(!isEnabled)}
         />
       </Bar>
       <NavMenu isEnabled={isEnabled}>
-        <RsvpLink href="#rsvp">RSVP</RsvpLink>
-        <NavItem href="#ceremony">Ceremony</NavItem>
-        <NavItem href="#accommodation">Accommodation</NavItem>
+        <Link href="/rsvp">
+          <RsvpLink>RSVP</RsvpLink>
+        </Link>
+        <Link href="/home#ceremony">
+          <NavItem>Ceremony</NavItem>
+        </Link>
+        <Link href="/home#accommodation">
+          <NavItem>Accommodation</NavItem>
+        </Link>
       </NavMenu>
     </Nav>
   );
@@ -34,6 +47,7 @@ const Nav = styled.nav`
   display: flex;
   flex-direction: row;
   align-items: center;
+  border-block-end: 1px solid ${({ theme }) => theme.colors.lightBorder};
 
   @media only screen and (max-width: 600px) {
     flex-direction: column;
@@ -48,8 +62,8 @@ const Bar = styled.div`
   width: 100%;
 
   @media only screen and (max-width: 600px) {
-    border-bottom: ${({ isEnabled, theme }) =>
-      isEnabled ? `1px solid ${theme.colors.border}` : "none"};
+    border-block-end: ${({ isEnabled, theme }) =>
+      isEnabled ? `1px solid ${theme.colors.lightBorder}` : "none"};
   }
 `;
 
@@ -74,6 +88,7 @@ const NavItem = styled.a`
   font-size: ${({ theme }) => theme.fontSize.medium};
   font-family: ${({ theme }) => theme.font.sansSerif};
   white-space: nowrap;
+  cursor: pointer;
 `;
 
 const HomeLink = styled.a`
@@ -84,6 +99,7 @@ const HomeLink = styled.a`
   font-size: ${({ theme }) => theme.fontSize.medium};
   font-family: ${({ theme }) => theme.font.sansSerif};
   font-weight: bold;
+  cursor: pointer;
 `;
 
 const StyledHamburgerButton = styled(HamburgerButton)`
