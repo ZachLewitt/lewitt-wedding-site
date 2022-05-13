@@ -1,7 +1,5 @@
 import { MainImage } from "@components/main-image";
-import { Section } from "@components/section";
-import { Intro } from "./intro";
-import { RsvpForm } from "./rsvp-form";
+import { Intro, RsvpForm } from "@components/rsvp";
 
 export default function Rsvp() {
   return (
