@@ -12,7 +12,7 @@ export const theme = {
     focusedBorder: "#63d3f3",
   },
   fontSize: {
-    extraLarge: "2.5rem",
+    extraLarge: "3rem",
     large: "2rem",
     medium: "1.2rem",
   },

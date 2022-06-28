@@ -1,11 +1,10 @@
 import styled from "styled-components";
 import Image from "next/image";
-import Lindos from "../public/lindos.jpg";
 
-export const MainImage = ({ children, ...other }) => {
+export const MainImage = ({ children, file }) => {
   return (
     <Container>
-      <StyledImage src={Lindos} />
+      <StyledImage src={file} />
       <Overlay>
         { children }      
       </Overlay>
@@ -16,16 +15,13 @@ export const MainImage = ({ children, ...other }) => {
 const Container = styled.div`
   position: relative;
   width: 100%;
-  color: #fff;
+  color: ${({ theme }) => theme.colors.primaryForeground};
 `;
 
 const Overlay = styled.div`
   position: absolute;
   bottom: 0;
-  font-weight: bold;
-  text-align: right;
-  font-size: 30px;
-  background: rgb(0, 0, 0, 0.1);
+  background: rgb(0, 0, 0, 0.3);
   width: 100%;
   height: 100%;
 `;

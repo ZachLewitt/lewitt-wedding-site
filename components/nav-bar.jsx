@@ -11,10 +11,11 @@ export const NavBar = () => {
       onClick={() => {
         if (isEnabled) setIsEnabled(false);
       }}
+      isEnabled={isEnabled}
     >
       <Bar isEnabled={isEnabled}>
         <Link href="/home">
-          <HomeLink>Lewitt Wedding</HomeLink>
+          <HomeLink>LEWITT WEDDING</HomeLink>
         </Link>
         <StyledHamburgerButton
           isEnabled={isEnabled}
@@ -25,11 +26,8 @@ export const NavBar = () => {
         <Link href="/rsvp">
           <RsvpLink>RSVP</RsvpLink>
         </Link>
-        <Link href="/home#ceremony">
-          <NavItem>Ceremony</NavItem>
-        </Link>
-        <Link href="/home#accommodation">
-          <NavItem>Accommodation</NavItem>
+        <Link href="/details">
+          <NavItem>Details</NavItem>
         </Link>
       </NavMenu>
     </Nav>
@@ -43,15 +41,18 @@ const Nav = styled.nav`
   width: 100%;
   background-color: ${({ theme }) => theme.colors.menuBackground};
   margin: 0px;
-  min-height: 50px;
+  padding-inline: ${({ theme }) => theme.margin.medium};
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: center;
   border-block-end: 1px solid ${({ theme }) => theme.colors.lightBorder};
 
   @media only screen and (max-width: 600px) {
     flex-direction: column;
     align-items: flex-start;
+
+    height: ${({ isEnabled }) => (isEnabled ? "100%" : "auto")};
   }
 `;
 
@@ -59,7 +60,9 @@ const Bar = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: center;
   width: 100%;
+  height: 65px;
 
   @media only screen and (max-width: 600px) {
     border-block-end: ${({ isEnabled, theme }) =>
@@ -73,6 +76,7 @@ const NavMenu = styled.div`
   align-items: center;
   grid-gap: ${({ theme }) => theme.margin.medium};
   margin-inline-end: ${({ theme }) => theme.margin.medium};
+  flex-grow: 1;
 
   @media only screen and (max-width: 600px) {
     flex-direction: column;
