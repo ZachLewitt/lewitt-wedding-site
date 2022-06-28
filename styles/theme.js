@@ -12,9 +12,9 @@ export const theme = {
     focusedBorder: "#63d3f3",
   },
   fontSize: {
-    extraLarge: "28px",
-    large: "22px",
-    medium: "17px",
+    extraLarge: "2.5rem",
+    large: "2rem",
+    medium: "1.2rem",
   },
   margin: {
     small: "7px",
