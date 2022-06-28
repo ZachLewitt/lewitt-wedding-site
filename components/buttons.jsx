@@ -9,6 +9,7 @@ const baseButtonStyle = css`
   min-width: 60px;
 
   border-radius: 4px;
+  font-size: ${({ theme }) => theme.fontSize.medium};
   text-decoration: none;
 `;
 
