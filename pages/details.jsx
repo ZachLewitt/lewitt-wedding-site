@@ -1,5 +1,5 @@
 import image from "../public/details.jpg";
-import { Text } from "@components/Text";
+import { Text } from "@components/text";
 import { PageWrapper } from "@components/page-wrapper";
 
 export default function Details() {
