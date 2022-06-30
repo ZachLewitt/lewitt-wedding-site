@@ -58,12 +58,14 @@ export const StyledHeading = styled(Heading)`
 
 export const Date = styled.span`
   font-size: ${({ theme }) => theme.fontSize.large};
+  font-family: ${({ theme }) => theme.font.content};
 
   margin-block-start: 150px;
 `;
 
 export const Location = styled.span`
   font-size: ${({ theme }) => theme.fontSize.medium};
+  font-family: ${({ theme }) => theme.font.content};
 
   margin-block-start: ${({ theme }) => theme.margin.large};
 `;

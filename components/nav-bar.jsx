@@ -15,7 +15,7 @@ export const NavBar = () => {
     >
       <Bar isEnabled={isEnabled}>
         <Link href="/home">
-          <HomeLink>LEWITT WEDDING</HomeLink>
+          <HomeLink>Lewitt Wedding</HomeLink>
         </Link>
         <StyledHamburgerButton
           isEnabled={isEnabled}
@@ -28,6 +28,9 @@ export const NavBar = () => {
         </Link>
         <Link href="/details">
           <NavItem>Details</NavItem>
+        </Link>
+        <Link href="/itinerary">
+          <NavItem>Itinerary</NavItem>
         </Link>
       </NavMenu>
     </Nav>
@@ -90,7 +93,7 @@ const NavItem = styled.a`
   color: ${({ theme }) => theme.colors.menuForeground};
   text-decoration: none;
   font-size: ${({ theme }) => theme.fontSize.medium};
-  font-family: ${({ theme }) => theme.font.sansSerif};
+  font-family: ${({ theme }) => theme.font.menu};
   white-space: nowrap;
   cursor: pointer;
 `;
@@ -101,7 +104,7 @@ const HomeLink = styled.a`
   color: ${({ theme }) => theme.colors.menuForeground};
   text-decoration: none;
   font-size: ${({ theme }) => theme.fontSize.medium};
-  font-family: ${({ theme }) => theme.font.sansSerif};
+  font-family: ${({ theme }) => theme.font.menu};
   font-weight: bold;
   cursor: pointer;
 `;

@@ -1,75 +1,40 @@
-import styled from "styled-components";
-import Image from "next/image";
 import image from "../public/details.jpg";
-import { Heading } from "@components/Heading"
+import { Text } from "@components/Text";
+import { PageWrapper } from "@components/page-wrapper";
 
 export default function Details() {
   return (
-    <>
-      <TitleWrapper>
-        <ImageWrapper>
-          <StyledImage src={image} />
-        </ImageWrapper>
-        <Heading>Welcome</Heading>
-      </TitleWrapper>
-    </>
+    <PageWrapper heading="Welcome" image={image}>
+      <Text>
+        Rhodes is the place Zach popped the question so we are going back to
+        celebrate our big day and would love it if you could join us.
+      </Text>
+      <Text>
+        Our wedding day will be located in Lindos, Rhodes on 1st August 2022.
+      </Text>
+      <Text>
+        We are making a holiday out of it with with some of the wedding party
+        joining us to stay in a lovely town town called Pefkos which is just a
+        10 minute drive from Lindos for a week!
+      </Text>
+      <Text>
+        Both Lindos and Pefkos are beautiful towns in Rhodes with plenty to do
+        alongside many bars, restaurants, activities and beaches at both. Both
+        cater for families and adults depending on how you see you time spent in
+        Rhodes!
+      </Text>
+      <Text>
+        We hope you can join us for our big day but if the travel is too far
+        then we would love to celebrate when we are back in the UK. Should you
+        wish to celebrate in Rhodes please see the accommodation page with
+        recommendations to help organise your trip.
+      </Text>
+      <Text>
+        <strong>
+          Please note the wedding is invite only and not open to the general
+          public.
+        </strong>
+      </Text>
+    </PageWrapper>
   );
 }
-
-const ImageWrapper = styled.div`
-  width: 500px;
-
-  @media only screen and (max-width: 600px) {
-    width: 250px;
-  }
-`;
-
-const StyledImage = styled(Image)`
-  width: 100%;
-  height: auto;
-
-  border-radius: 50%;
-`;
-
-const TitleWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  grid-gap: 30px;
-
-  background: #EEE;
-
-  width: 100%;
-  padding: 30px;
-`;
-
-const ContentWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  grid-gap: 12px;
-
-  width: 100%;
-  max-width: 700px;
-  padding-block: 30px;
-`;
-
-const Key = styled.p`
-  display: inline-flex;
-  align-items: center;
-  height: 50px;
-  width: 100%;
-  align-self: start;
-  background: #ff9200;
-  color: #FFF;
-  padding-inline-start: 30px;
-  font-size: 1.5rem;
-  margin: 0px;
-  border-radius: 4px;
-`;
-
-const Value = styled.p`
-  align-self: start;
-  padding-inline-start: 30px;
-  margin: 0px;
-`;

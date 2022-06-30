@@ -1,11 +1,8 @@
-import { Section } from "@components/section";
-import { SectionHeading } from "@components/section-heading";
 import { Text } from "@components/text"; 
 
 export const Intro = () => {
   return (
-    <Section>
-      <SectionHeading>RSVP</SectionHeading>
+    <>
       <Text>
         We welcome you to come and join us in Lindos on the 01 August 2023.
       </Text>
@@ -23,6 +20,6 @@ export const Intro = () => {
         details, even if you are not attending, then it would be greatly
         appreciated.
       </Text>
-    </Section>
+    </>
   );
 };

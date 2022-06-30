@@ -5,5 +5,6 @@ export const Fieldset = styled.fieldset`
   flex-direction: column;
   border: none;
   margin-block-end: ${({ theme }) => theme.margin.large};
+  margin-inline: 0px;
   padding: 0px;
 `;
