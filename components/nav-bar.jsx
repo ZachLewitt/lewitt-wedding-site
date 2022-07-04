@@ -14,7 +14,7 @@ export const NavBar = () => {
       isEnabled={isEnabled}
     >
       <Bar isEnabled={isEnabled}>
-        <Link href="/home">
+        <Link href="/">
           <HomeLink>Lewitt Wedding</HomeLink>
         </Link>
         <StyledHamburgerButton

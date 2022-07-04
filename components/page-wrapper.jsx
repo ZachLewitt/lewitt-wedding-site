@@ -39,7 +39,7 @@ const TitleWrapper = styled.div`
   align-items: center;
   grid-gap: ${({ theme }) => theme.margin.large};
 
-  background: #daeaf1;
+  background: ${({ theme }) => theme.colors.lightPrimaryHighlight};
 
   width: 100%;
   padding-top: ${({ theme }) => theme.margin.large};
@@ -60,7 +60,7 @@ const HeadingWrapper = styled.div`
   align-items: center;
   justify-content: center;
 
-  background: #C6DCE4;
+  background: ${({ theme }) => theme.colors.darkPrimaryHighlight};
   
   width: 100%;
   padding: ${({ theme }) => theme.margin.large};

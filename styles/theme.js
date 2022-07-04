@@ -11,6 +11,11 @@ export const theme = {
     darkBorder: "#616161",
     focusedBorder: "#63d3f3",
 
+    lightPrimaryHighlight: "#DAEAF1",
+    darkPrimaryHighlight: "#C6DCE4",
+    lightSecondaryHighlight: "#FFE6E6",
+    darkSecondaryHighlight: "#F2D1D1",
+
     lightPink: "#FFE6E6",
     darkPink: "#F2D1D1",
     lightBlue: "#DAEAF1",
@@ -29,6 +34,7 @@ export const theme = {
     medium: "12px",
     large: "18px",
     extraLarge: "22px",
+    extraExtraLarge: "28px",
   },
   font: {
     serif: "Trebuchet, Tahoma, Arial, sans-serif",
