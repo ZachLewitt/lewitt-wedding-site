@@ -21,6 +21,14 @@ export const ActionButton = styled.button`
   border: none;
 `;
 
+export const SubmitButton = styled.button`
+  ${baseButtonStyle}
+
+  color: ${({ theme }) => theme.colors.submitForeground};
+  background: ${({ theme }) => theme.colors.submitBackground};
+  border: none;
+`;
+
 export const DetailButton = styled.button`
   ${baseButtonStyle}
 

@@ -6,6 +6,8 @@ export const theme = {
     contentBackground: "#FFF",
     primaryForeground: "#FFF",
     primaryBackground: "#2da1e7",
+    submitForeground: "#FFF",
+    submitBackground: "#4BB543",
     inputBackground: "#f5f5f5",
     lightBorder: "#CCC",
     darkBorder: "#616161",

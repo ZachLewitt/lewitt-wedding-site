@@ -48,11 +48,9 @@ const TitleWrapper = styled.div`
 const ContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: start;
+  align-items: center;
 
   width: 100%;
-  max-width: 700px;
-  padding: ${({ theme }) => theme.margin.large};
 `;
 
 const HeadingWrapper = styled.div`

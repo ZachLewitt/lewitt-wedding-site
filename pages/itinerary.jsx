@@ -2,11 +2,12 @@ import styled from "styled-components";
 import image from "../public/itinerary.jpg";
 import { PageWrapper } from "@components/page-wrapper";
 import { Text } from "@components/text";
+import { Section } from "@components/section";
 
 export default function Itinerary() {
   return (
     <PageWrapper heading="Itinerary" image={image}>
-      <ItineraryContainer>
+      <Section>
         <DayContainer>
           <DayHeader>
             <DayHeaderContent>
@@ -49,14 +50,10 @@ export default function Itinerary() {
             </Event>
           </EventList>
         </DayContainer>
-      </ItineraryContainer>
+      </Section>
     </PageWrapper>
   );
 }
-
-const ItineraryContainer = styled.div`
-  width: 100%;
-`;
 
 const DayContainer = styled.div`
   width: 100%;
