@@ -38,6 +38,7 @@ export const RsvpForm = () => {
         <Form
           id="rsvpForm"
           ref={formRef}
+          onSubmit={handleSubmit}
           name="rsvp"
           data-netlify="true"
           netlify-honeypot="bot-field"
@@ -109,7 +110,7 @@ export const RsvpForm = () => {
             )}
             <StyledSeparator />
             <ButtonGroup>
-              <SubmitButton disabled={isSubmitting} onSubmit={handleSubmit}>
+              <SubmitButton disabled={isSubmitting}>
                 Submit Details
               </SubmitButton>
             </ButtonGroup>
@@ -177,6 +178,7 @@ const useForm = (formRef) => {
         } finally {
           setIsSubmitting(false);
         }
+        console.log("here");
       })();
     },
     [firstName, lastName, email, attending]
