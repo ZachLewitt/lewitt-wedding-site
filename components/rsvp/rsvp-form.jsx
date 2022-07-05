@@ -43,6 +43,7 @@ export const RsvpForm = () => {
           data-netlify="true"
           netlify-honeypot="bot-field"
         >
+          <input type="hidden" name="form-name" value="rsvp" />
           <p style={{ display: "none" }}>
             <label>
               Don’t fill this out if you’re human: <input name="bot-field" />
@@ -209,7 +210,8 @@ const Container = styled.div`
 
   width: 100%;
   background: ${({ theme }) => theme.colors.darkSecondaryHighlight};
-  padding: ${({ theme }) => theme.margin.extraExtraLarge};
+  padding: ${({ theme }) => theme.margin.extraExtraLarge}
+    ${({ theme }) => theme.margin.medium};
 `;
 
 const StyledSection = styled(Section)`
