@@ -25,10 +25,11 @@ const Label = styled.label`
   flex-direction: column;
 
   margin: 0px;
-  margin-block-end: ${({ theme }) => theme.margin.medium};
+  margin-block: ${({ theme }) => theme.margin.medium};
 
   font-size: ${({ theme }) => theme.fontSize.medium};
   font-family: ${({ theme }) => theme.font.content};
+  font-weight: bold;
 `;
 
 const Input = ({ children, ...other }) => {
@@ -109,7 +110,7 @@ const StyledRadioLabel = styled.p`
   grid-gap: ${({ theme }) => theme.margin.small};
 
   margin: 0px;
-  margin-block-end: ${({ theme }) => theme.margin.medium};
+  margin-block: ${({ theme }) => theme.margin.medium};
 
   font-size: ${({ theme }) => theme.fontSize.medium};
   font-family: ${({ theme }) => theme.font.content};

@@ -220,10 +220,11 @@ const StyledSection = styled(Section)`
 `;
 
 const StyledSeparator = styled(Separator)`
-  margin-block-end: ${({ theme }) => theme.margin.medium};
+  margin-block: ${({ theme }) => theme.margin.medium};
 `;
 
 const ButtonGroup = styled.div`
   display: flex;
   justify-content: end;
+  padding-block-start: ${({ theme }) => theme.margin.medium};
 `;

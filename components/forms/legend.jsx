@@ -5,6 +5,7 @@ export const Legend = styled.legend`
 
   font-size: ${({ theme }) => theme.fontSize.large};
   font-family: ${({ theme }) => theme.font.title};
+  font-weight: bold;
 
   color: ${({ theme }) => theme.colors.contentForeground};
   border-bottom: 2px solid ${({ theme }) => theme.colors.lightBorder};
@@ -13,5 +14,5 @@ export const Legend = styled.legend`
   padding-block-end: ${({ theme }) => theme.margin.small};
 
   margin: 0px;
-  margin-block-end: ${({ theme }) => theme.margin.large};
+  margin-block-end: ${({ theme }) => theme.margin.medium};
 `;
