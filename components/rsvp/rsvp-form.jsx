@@ -177,9 +177,8 @@ const useForm = (formRef) => {
             body: new URLSearchParams(formData).toString(),
           });
         } finally {
-          setIsSubmitting(false);
+          //setIsSubmitting(false);
         }
-        console.log("here");
       })();
     },
     [firstName, lastName, email, attending]
@@ -209,7 +208,8 @@ const Container = styled.div`
   align-items: center;
 
   width: 100%;
-  background: ${({ theme }) => theme.colors.darkSecondaryHighlight};
+  //background: ${({ theme }) => theme.colors.darkSecondaryHighlight};
+  background-image: linear-gradient(to bottom right, ${({ theme }) => theme.colors.lightSecondaryHighlight}, ${({ theme }) => theme.colors.lightPrimaryHighlight});
   padding: ${({ theme }) => theme.margin.extraExtraLarge}
     ${({ theme }) => theme.margin.medium};
 `;
@@ -225,6 +225,7 @@ const StyledSeparator = styled(Separator)`
 
 const ButtonGroup = styled.div`
   display: flex;
-  justify-content: end;
+  justify-content: center;
   padding-block-start: ${({ theme }) => theme.margin.medium};
+  padding-block-end: ${({ theme }) => theme.margin.small};
 `;

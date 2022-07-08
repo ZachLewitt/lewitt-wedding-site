@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { darken } from "polished";
+import { darken, transparentize } from "polished";
 
 const baseButtonStyle = css`
   display: inline-flex;
@@ -39,6 +39,11 @@ export const SubmitButton = styled.button`
   color: ${({ theme }) => theme.colors.submitForeground};
   background: ${({ theme }) => theme.colors.submitBackground};
 
+  padding: ${({ theme }) => theme.margin.large};
+
+  width: 100%;
+  max-width:500px;
+
   border: none;
 
   &:hover {
@@ -47,6 +52,10 @@ export const SubmitButton = styled.button`
 
   &:active {
     background: ${({ theme }) => darken(0.4, theme.colors.submitBackground)};
+  }
+
+  &:disabled {
+    background: ${({ theme }) => transparentize(0.4, theme.colors.submitBackground)};
   }
 `;
 
