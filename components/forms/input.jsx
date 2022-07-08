@@ -2,17 +2,20 @@ import styled, { css } from "styled-components";
 
 const baseStyle = css`
   width: 100%;
-  height: 40px;
-  padding: ${({ theme }) => theme.margin.small};
-  background-color: ${({ theme }) => theme.colors.inputBackground};
+
+  color: ${({ theme }) => theme.colors.contentForeground};
+  background: ${({ theme }) => theme.colors.contentBackground};
+
+  padding: ${({ theme }) => theme.margin.medium};
   margin-block-start: ${({ theme }) => theme.margin.small};
-  border: 2px solid ${({ theme }) => theme.colors.darkBorder};
+  border: 3px solid ${({ theme }) => theme.colors.lightBorder};
   border-radius: ${({ theme }) => theme.borderRadius};
   outline: none;
 
+  font-size: ${({ theme }) => theme.fontSize.medium};
+
   &:focus {
-    border: 2px solid ${({ theme }) => theme.colors.focusedBorder};
-    box-shadow: 0 0 5px ${({ theme }) => theme.colors.focusedBorder};
+    border: 3px solid ${({ theme }) => theme.colors.darkBorder};
   }
 `;
 
