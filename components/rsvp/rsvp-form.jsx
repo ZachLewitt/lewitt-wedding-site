@@ -1,6 +1,6 @@
 import { useCallback, useRef, useState } from "react";
 import styled from "styled-components";
-import Router from 'next/router';
+import Router from "next/router";
 import {
   Fieldset,
   TextInput,
@@ -209,6 +209,8 @@ const useForm = (formRef) => {
           validateField(ageField, setAgeError);
         }
 
+        setIsSubmitting(false);
+
         return;
       }
 
@@ -222,7 +224,7 @@ const useForm = (formRef) => {
             body: new URLSearchParams(formData).toString(),
           });
 
-          if(response.status === 200){
+          if (response.status === 200) {
             Router.push("/confirmation");
           }
         } finally {
