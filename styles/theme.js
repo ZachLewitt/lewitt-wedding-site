@@ -12,16 +12,12 @@ export const theme = {
     lightBorder: "#CCC",
     darkBorder: "#616161",
     focusedBorder: "#63d3f3",
+    error: "red",
 
     lightPrimaryHighlight: "#DAEAF1",
     darkPrimaryHighlight: "#C6DCE4",
     lightSecondaryHighlight: "#FFE6E6",
     darkSecondaryHighlight: "#F2D1D1",
-
-    lightPink: "#FFE6E6",
-    darkPink: "#F2D1D1",
-    lightBlue: "#DAEAF1",
-    darkBlue: "#C6DCE4"
   },
   fontSize: {
     extraLarge: "3rem",

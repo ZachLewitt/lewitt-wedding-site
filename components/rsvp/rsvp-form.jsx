@@ -1,5 +1,6 @@
 import { useCallback, useRef, useState } from "react";
 import styled from "styled-components";
+import Router from 'next/router';
 import {
   Fieldset,
   TextInput,
@@ -15,21 +16,34 @@ import { SubmitButton } from "@components/buttons";
 
 export const RsvpForm = () => {
   const formRef = useRef();
+
   const {
     handleSubmit,
     isSubmitting,
     firstName,
     firstNameError,
     setFirstName,
+    setFirstNameError,
     lastName,
     lastNameError,
     setLastName,
+    setLastNameError,
     email,
     emailError,
     setEmail,
+    setEmailError,
     attending,
     attendingError,
     setAttending,
+    setAttendingError,
+    mealChoice,
+    mealChoiceError,
+    setMealChoice,
+    setMealChoiceError,
+    age,
+    ageError,
+    setAge,
+    setAgeError,
   } = useForm(formRef);
 
   return (
@@ -42,6 +56,7 @@ export const RsvpForm = () => {
           name="rsvp"
           data-netlify="true"
           netlify-honeypot="bot-field"
+          noValidate
         >
           <input type="hidden" name="form-name" value="rsvp" />
           <p style={{ display: "none" }}>
@@ -56,6 +71,8 @@ export const RsvpForm = () => {
               required
               value={firstName}
               onChange={(e) => setFirstName(e.target.value)}
+              onBlur={(e) => validateField(e.target, setFirstNameError)}
+              error={firstNameError}
             >
               First Name:
             </TextInput>
@@ -64,6 +81,8 @@ export const RsvpForm = () => {
               required
               value={lastName}
               onChange={(e) => setLastName(e.target.value)}
+              onBlur={(e) => validateField(e.target, setLastNameError)}
+              error={lastNameError}
             >
               Last Name:
             </TextInput>
@@ -72,38 +91,52 @@ export const RsvpForm = () => {
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              onBlur={(e) => validateField(e.target, setEmailError)}
+              error={emailError}
             >
-              Email:
+              Email Address:
             </EmailInput>
             <StyledSeparator />
             <RadioGroup
               labelText="Will you be attending the wedding?"
               onChange={(e) => setAttending(e.target.value === "true")}
+              onBlur={(e) => validateField(e.target, setAttendingError)}
+              error={attendingError}
             >
-              <RadioInput name="attending" value="true">
+              <RadioInput name="attending" value="true" required>
                 Yes
               </RadioInput>
-              <RadioInput name="attending" value="false">
+              <RadioInput name="attending" value="false" required>
                 No
               </RadioInput>
             </RadioGroup>
             {attending && (
               <>
                 <StyledSeparator />
-                <RadioGroup labelText="Do you require a vegetarian meal option?">
-                  <RadioInput name="dietaryRequirements" value="true">
+                <RadioGroup
+                  labelText="Do you require a vegetarian meal option?"
+                  onChange={(e) => setMealChoice(e.target.value === "true")}
+                  onBlur={(e) => validateField(e.target, setMealChoiceError)}
+                  error={mealChoiceError}
+                >
+                  <RadioInput name="mealChoice" value="true" required>
                     Yes
                   </RadioInput>
-                  <RadioInput name="dietaryRequirements" value="false">
+                  <RadioInput name="mealChoice" value="false" required>
                     No
                   </RadioInput>
                 </RadioGroup>
                 <StyledSeparator />
-                <RadioGroup labelText="Are you over the age of 12?">
-                  <RadioInput name="olderThanTwelve" value="true">
+                <RadioGroup
+                  labelText="Are you over the age of 12?"
+                  onChange={(e) => setAge(e.target.value === "true")}
+                  onBlur={(e) => validateField(e.target, setAgeError)}
+                  error={ageError}
+                >
+                  <RadioInput name="olderThanTwelve" value="true" required>
                     Yes
                   </RadioInput>
-                  <RadioInput name="olderThanTwelve" value="false">
+                  <RadioInput name="olderThanTwelve" value="false" required>
                     No
                   </RadioInput>
                 </RadioGroup>
@@ -123,17 +156,23 @@ export const RsvpForm = () => {
 };
 
 const useForm = (formRef) => {
-  const [firstName, setFirstName] = useState();
+  const [firstName, setFirstName] = useState("");
   const [firstNameError, setFirstNameError] = useState();
 
-  const [lastName, setLastName] = useState();
+  const [lastName, setLastName] = useState("");
   const [lastNameError, setLastNameError] = useState();
 
-  const [email, setEmail] = useState();
+  const [email, setEmail] = useState("");
   const [emailError, setEmailError] = useState();
 
   const [attending, setAttending] = useState(null);
   const [attendingError, setAttendingError] = useState();
+
+  const [mealChoice, setMealChoice] = useState(null);
+  const [mealChoiceError, setMealChoiceError] = useState();
+
+  const [age, setAge] = useState(null);
+  const [ageError, setAgeError] = useState();
 
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -143,45 +182,55 @@ const useForm = (formRef) => {
 
       setIsSubmitting(true);
 
-      let isValid = true;
+      const form = formRef.current;
 
-      if (!firstName || firstName.trim().length === 0) {
-        setFirstNameError("Please complete this field");
-        isValid = false;
+      const isValid = form.checkValidity();
+
+      if (!isValid) {
+        const firstNameField = form.querySelector("input[name='fname']");
+        validateField(firstNameField, setFirstNameError);
+
+        const lastNameField = form.querySelector("input[name='lname']");
+        validateField(lastNameField, setLastNameError);
+
+        const emailField = form.querySelector("input[name='email']");
+        validateField(emailField, setEmailError);
+
+        const attendingField = form.querySelector("input[name='attending']");
+        validateField(attendingField, setAttendingError);
+
+        if (attending) {
+          const mealChoiceField = form.querySelector(
+            "input[name='mealChoice']"
+          );
+          validateField(mealChoiceField, setMealChoiceError);
+
+          const ageField = form.querySelector("input[name='olderThanTwelve']");
+          validateField(ageField, setAgeError);
+        }
+
+        return;
       }
-
-      if (!lastName || lastName.trim().length === 0) {
-        setLastNameError("Please complete this field");
-        isValid = false;
-      }
-
-      if (!email || email.trim().length === 0) {
-        setEmailError("Please complete this field");
-        isValid = false;
-      }
-
-      if (attending == null) {
-        setAttendingError("Please complete this field");
-        isValid = false;
-      }
-
-      if (!isValid) return;
 
       (async () => {
         const formData = new FormData(formRef.current);
 
         try {
-          await fetch("/", {
+          const response = await fetch("/", {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
             body: new URLSearchParams(formData).toString(),
           });
+
+          if(response.status === 200){
+            Router.push("/confirmation");
+          }
         } finally {
           //setIsSubmitting(false);
         }
       })();
     },
-    [firstName, lastName, email, attending]
+    [firstName, lastName, email, attending, mealChoice, age, formRef]
   );
 
   return {
@@ -190,16 +239,37 @@ const useForm = (formRef) => {
     firstName,
     firstNameError,
     setFirstName,
+    setFirstNameError,
     lastName,
     lastNameError,
     setLastName,
+    setLastNameError,
     email,
     emailError,
     setEmail,
+    setEmailError,
     attending,
     attendingError,
     setAttending,
+    setAttendingError,
+    mealChoice,
+    mealChoiceError,
+    setMealChoice,
+    setMealChoiceError,
+    age,
+    ageError,
+    setAge,
+    setAgeError,
   };
+};
+
+const validateField = (field, setError) => {
+  if (!field.checkValidity()) {
+    const message = field.validationMessage;
+    setError(message);
+  } else {
+    setError(null);
+  }
 };
 
 const Container = styled.div`
@@ -209,7 +279,11 @@ const Container = styled.div`
 
   width: 100%;
   //background: ${({ theme }) => theme.colors.darkSecondaryHighlight};
-  background-image: linear-gradient(to bottom right, ${({ theme }) => theme.colors.lightSecondaryHighlight}, ${({ theme }) => theme.colors.lightPrimaryHighlight});
+  background-image: linear-gradient(
+    to bottom right,
+    ${({ theme }) => theme.colors.lightSecondaryHighlight},
+    ${({ theme }) => theme.colors.lightPrimaryHighlight}
+  );
   padding: ${({ theme }) => theme.margin.extraExtraLarge}
     ${({ theme }) => theme.margin.medium};
 `;

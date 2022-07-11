@@ -1,4 +1,6 @@
 import styled, { css } from "styled-components";
+import { useState } from "react";
+import { FieldError } from "./field-error";
 
 const baseStyle = css`
   width: 100%;
@@ -17,6 +19,12 @@ const baseStyle = css`
   &:focus {
     border: 3px solid ${({ theme }) => theme.colors.darkBorder};
   }
+
+  ${({ theme, touched }) =>
+    touched &&
+    `&:invalid {
+        border: 3px solid ${theme.colors.error};
+    }`}
 `;
 
 const StyledInput = styled.input`
@@ -35,12 +43,27 @@ const Label = styled.label`
   font-weight: bold;
 `;
 
-const Input = ({ children, ...other }) => {
+const Input = ({ children, error, onBlur, ...other }) => {
+  const [touched, setTouched] = useState(false);
+
   return (
-    <Label>
-      {children}
-      <StyledInput {...other} />
-    </Label>
+    <>
+      <Label>
+        {children}
+        <StyledInput
+          {...other}
+          onBlur={(e) => {
+            setTouched(true);
+            onBlur(e);
+          }}
+          onInvalid={(e) => {
+            setTouched(true);
+          }}
+          touched={touched}
+        />
+      </Label>
+      {error && <FieldError>{error}</FieldError>}
+    </>
   );
 };
 
@@ -69,14 +92,29 @@ export const Select = ({ children, labelText, ...other }) => {
   );
 };
 
-export const RadioGroup = ({ labelText, children, ...other }) => {
+export const RadioGroup = ({ labelText, children, error, ...other }) => {
   return (
-    <div {...other}>
+    <>
       <Label as="p">{labelText}</Label>
-      {children}
-    </div>
+      <RadioContainer hasError={!!error} {...other}>{children}</RadioContainer>
+      {error && <FieldError>{error}</FieldError>}
+    </>
   );
 };
+
+const RadioContainer = styled.div`
+  border: 3px solid
+    ${({ theme, hasError }) =>
+      hasError ? theme.colors.error : theme.colors.lightBorder};
+  border-radius: ${({ theme }) => theme.borderRadius};
+
+  margin-block-end: ${({ theme }) => theme.margin.medium};
+  padding: ${({ theme }) => theme.margin.small};
+
+  &:focus {
+    border: 3px solid ${({ theme }) => theme.colors.darkBorder};
+  }
+`;
 
 const StyledRadioInput = styled.input`
   appearance: none;
