@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Image from "next/image";
-import { Heading } from "./Heading";
+import { Heading } from "./heading";
 
 export const PageWrapper = ({ heading, image, children }) => {
   return (

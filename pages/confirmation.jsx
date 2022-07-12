@@ -3,7 +3,6 @@ import { ButtonGroup } from "@components/button-group";
 import { ActionButton } from "@components/buttons";
 import { Heading } from "@components/heading";
 import { Text } from "@components/text";
-import { Separator } from "@components/separator";
 
 export default function Details() {
   return (

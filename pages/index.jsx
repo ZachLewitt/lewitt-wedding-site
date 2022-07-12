@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { ActionButton, DetailButton } from "@components/buttons";
-import { Heading } from "@components/Heading";
+import { Heading } from "@components/heading";
 import { ButtonGroup } from "@components/button-group"
 
 export default function Home() {
