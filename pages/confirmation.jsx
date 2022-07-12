@@ -1,23 +1,30 @@
 import styled from "styled-components";
 import { ButtonGroup } from "@components/button-group";
 import { ActionButton } from "@components/buttons";
+import { Heading } from "@components/heading";
+import { Text } from "@components/text";
+import { Separator } from "@components/separator";
 
 export default function Details() {
   return (
     <>
-      <TopContainer>
-        <Container></Container>
-      </TopContainer>
-      <ButtonGroup>
-        <ActionButton as="a" href="/rsvp#rsvpForm">
-          Add Another Person
-        </ActionButton>
-      </ButtonGroup>
+      <HeroImageContainer>
+        <HeroImage />
+      </HeroImageContainer>
+      <Content>
+        <StyledHeading small>Thanks For Confirming</StyledHeading>
+        <Text>We can't wait to see you there!</Text>
+        <ButtonGroup>
+          <ActionButton as="a" href="/rsvp#rsvpForm">
+            Add Another Person
+          </ActionButton>
+        </ButtonGroup>
+      </Content>
     </>
   );
 }
 
-const TopContainer = styled.div`
+const HeroImageContainer = styled.div`
   background: ${({ theme }) => theme.colors.lightPrimaryHighlight};
   display: flex;
   flex-direction: column;
@@ -27,7 +34,7 @@ const TopContainer = styled.div`
   height: auto;
 `;
 
-const Container = styled.div`
+const HeroImage = styled.div`
   /* The image used */
   background-image: url("/confirmation.jpg");
 
@@ -39,4 +46,22 @@ const Container = styled.div`
   width: 100%;
   max-width: 1400px;
   height: 50vh;
+`;
+
+const Content = styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 100%;
+`;
+
+const StyledHeading = styled(Heading)`
+  width: 100%;
+  text-align: center;
+
+  background: ${({ theme }) => theme.colors.darkPrimaryHighlight};
+
+  padding: ${({ theme }) => theme.margin.large};
+  margin-bottom: ${({ theme }) => theme.margin.large};
 `;
