@@ -111,40 +111,38 @@ export const RsvpForm = () => {
                 No
               </RadioInput>
             </RadioGroup>
-            {attending && (
-              <>
-                <StyledSeparator />
-                <RadioGroup
-                  labelText="Do you require a vegetarian meal option?"
-                  onChange={(e) => setMealChoice(e.target.value === "true")}
-                  onBlur={(e) => validateField(e.target, setMealChoiceError)}
-                  onClick={(e) => validateField(e.target, setMealChoiceError)}
-                  error={mealChoiceError}
-                >
-                  <RadioInput name="mealChoice" value="true" required>
-                    Yes
-                  </RadioInput>
-                  <RadioInput name="mealChoice" value="false" required>
-                    No
-                  </RadioInput>
-                </RadioGroup>
-                <StyledSeparator />
-                <RadioGroup
-                  labelText="Are you over the age of 12?"
-                  onChange={(e) => setAge(e.target.value === "true")}
-                  onBlur={(e) => validateField(e.target, setAgeError)}
-                  onClick={(e) => validateField(e.target, setAgeError)}
-                  error={ageError}
-                >
-                  <RadioInput name="olderThanTwelve" value="true" required>
-                    Yes
-                  </RadioInput>
-                  <RadioInput name="olderThanTwelve" value="false" required>
-                    No
-                  </RadioInput>
-                </RadioGroup>
-              </>
-            )}
+            <ToggleFieldContainer isVisible={attending}>
+              <StyledSeparator />
+              <RadioGroup
+                labelText="Do you require a vegetarian meal option?"
+                onChange={(e) => setMealChoice(e.target.value === "true")}
+                onBlur={(e) => validateField(e.target, setMealChoiceError)}
+                onClick={(e) => validateField(e.target, setMealChoiceError)}
+                error={mealChoiceError}
+              >
+                <RadioInput name="mealChoice" value="true" required>
+                  Yes
+                </RadioInput>
+                <RadioInput name="mealChoice" value="false" required>
+                  No
+                </RadioInput>
+              </RadioGroup>
+              <StyledSeparator />
+              <RadioGroup
+                labelText="Are you over the age of 12?"
+                onChange={(e) => setAge(e.target.value === "true")}
+                onBlur={(e) => validateField(e.target, setAgeError)}
+                onClick={(e) => validateField(e.target, setAgeError)}
+                error={ageError}
+              >
+                <RadioInput name="olderThanTwelve" value="true" required>
+                  Yes
+                </RadioInput>
+                <RadioInput name="olderThanTwelve" value="false" required>
+                  No
+                </RadioInput>
+              </RadioGroup>
+            </ToggleFieldContainer>
             <StyledSeparator />
             <ButtonGroup>
               <SubmitButton disabled={isSubmitting}>
@@ -309,4 +307,11 @@ const ButtonGroup = styled.div`
   justify-content: center;
   padding-block-start: ${({ theme }) => theme.margin.medium};
   padding-block-end: ${({ theme }) => theme.margin.small};
+`;
+
+const ToggleFieldContainer = styled.div`
+  display: ${({ isVisible }) => (isVisible ? "flex" : "none")};
+  opacity: ${({ isVisible }) => (isVisible ? 1 : 0)};
+
+  flex-direction: column;
 `;
