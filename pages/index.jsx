@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { ActionButton, DetailButton } from "@components/buttons";
 import { Heading } from "@components/Heading";
+import { ButtonGroup } from "@components/button-group"
 
 export default function Home() {
   return (
@@ -70,10 +71,6 @@ export const Location = styled.span`
   margin-block-start: ${({ theme }) => theme.margin.large};
 `;
 
-export const LinkContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-
+export const LinkContainer = styled(ButtonGroup)`
   margin-block-start: ${({ theme }) => theme.margin.large};
-  grid-gap: ${({ theme }) => theme.margin.medium};
 `;

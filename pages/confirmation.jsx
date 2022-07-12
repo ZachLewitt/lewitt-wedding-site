@@ -1,10 +1,19 @@
 import styled from "styled-components";
+import { ButtonGroup } from "@components/button-group";
+import { ActionButton } from "@components/buttons";
 
 export default function Details() {
   return (
-    <TopContainer>
-      <Container></Container>
-    </TopContainer>
+    <>
+      <TopContainer>
+        <Container></Container>
+      </TopContainer>
+      <ButtonGroup>
+        <ActionButton as="a" href="/rsvp#rsvpForm">
+          Add Another Person
+        </ActionButton>
+      </ButtonGroup>
+    </>
   );
 }
 

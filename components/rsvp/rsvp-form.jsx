@@ -53,12 +53,12 @@ export const RsvpForm = () => {
           id="rsvpForm"
           ref={formRef}
           onSubmit={handleSubmit}
-          name="rsvpForm"
+          name="rsvp"
           data-netlify="true"
           netlify-honeypot="bot-field"
           noValidate
         >
-          <input type="hidden" name="form-name" value="rsvpForm" />
+          <input type="hidden" name="form-name" value="rsvp" />
           <p style={{ display: "none" }}>
             <label>
               Don’t fill this out if you’re human: <input name="bot-field" />
