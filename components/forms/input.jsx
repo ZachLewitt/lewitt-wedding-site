@@ -106,10 +106,11 @@ const RadioContainer = styled.div`
   border: 3px solid
     ${({ theme, hasError }) =>
       hasError ? theme.colors.error : theme.colors.lightBorder};
+
   border-radius: ${({ theme }) => theme.borderRadius};
 
   margin-block-end: ${({ theme }) => theme.margin.medium};
-  padding: ${({ theme }) => theme.margin.small};
+  padding: ${({ theme }) => theme.margin.small} ${({ theme }) => theme.margin.medium};
 
   &:focus {
     border: 3px solid ${({ theme }) => theme.colors.darkBorder};

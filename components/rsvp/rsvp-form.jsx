@@ -53,12 +53,12 @@ export const RsvpForm = () => {
           id="rsvpForm"
           ref={formRef}
           onSubmit={handleSubmit}
-          name="rsvp"
+          name="rsvpForm"
           data-netlify="true"
           netlify-honeypot="bot-field"
           noValidate
         >
-          <input type="hidden" name="form-name" value="rsvp" />
+          <input type="hidden" name="form-name" value="rsvpForm" />
           <p style={{ display: "none" }}>
             <label>
               Don’t fill this out if you’re human: <input name="bot-field" />
@@ -101,6 +101,7 @@ export const RsvpForm = () => {
               labelText="Will you be attending the wedding?"
               onChange={(e) => setAttending(e.target.value === "true")}
               onBlur={(e) => validateField(e.target, setAttendingError)}
+              onClick={(e) => validateField(e.target, setAttendingError)}
               error={attendingError}
             >
               <RadioInput name="attending" value="true" required>
@@ -117,6 +118,7 @@ export const RsvpForm = () => {
                   labelText="Do you require a vegetarian meal option?"
                   onChange={(e) => setMealChoice(e.target.value === "true")}
                   onBlur={(e) => validateField(e.target, setMealChoiceError)}
+                  onClick={(e) => validateField(e.target, setMealChoiceError)}
                   error={mealChoiceError}
                 >
                   <RadioInput name="mealChoice" value="true" required>
@@ -131,6 +133,7 @@ export const RsvpForm = () => {
                   labelText="Are you over the age of 12?"
                   onChange={(e) => setAge(e.target.value === "true")}
                   onBlur={(e) => validateField(e.target, setAgeError)}
+                  onClick={(e) => validateField(e.target, setAgeError)}
                   error={ageError}
                 >
                   <RadioInput name="olderThanTwelve" value="true" required>
@@ -216,12 +219,14 @@ const useForm = (formRef) => {
 
       (async () => {
         const formData = new FormData(formRef.current);
+        const body = new URLSearchParams(formData).toString();
+        console.log(body);
 
         try {
           const response = await fetch("/", {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: new URLSearchParams(formData).toString(),
+            body,
           });
 
           if (response.status === 200) {
