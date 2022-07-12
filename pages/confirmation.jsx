@@ -14,7 +14,7 @@ export default function Details() {
         <StyledHeading small>Thanks For Confirming</StyledHeading>
         <Text>We can't wait to see you there!</Text>
         <ButtonGroup>
-          <ActionButton as="a" href="/rsvp#rsvpForm">
+          <ActionButton as="a" href="/rsvp#rsvpFormSection">
             Add Another Person
           </ActionButton>
         </ButtonGroup>
