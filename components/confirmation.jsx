@@ -1,21 +1,20 @@
 import styled from "styled-components";
 import { transparentize } from "polished";
-import { ButtonGroup } from "@components/button-group";
 import { ActionButton } from "@components/buttons";
 import { Heading } from "@components/heading";
 import { Text } from "@components/text";
 
-export default function Details() {
+export const Confirmation = ({ headingText, summaryText, linkText }) => {
   return (
     <>
       <Image>
         <ImageOverlay>
           <Content>
-            <StyledHeading>Thanks For Confirming</StyledHeading>
+            <StyledHeading>{headingText}</StyledHeading>
             <ActionContainer>
-              <Text bold>We can't wait to see you there!</Text>
+              <StyledText bold>{summaryText}</StyledText>
               <ActionButton as="a" href="/rsvp#rsvpFormSection">
-                Confirm Another Person
+                {linkText}
               </ActionButton>
             </ActionContainer>
           </Content>
@@ -23,7 +22,7 @@ export default function Details() {
       </Image>
     </>
   );
-}
+};
 
 const ImageOverlay = styled.div`
   display: flex;
@@ -62,7 +61,6 @@ const ActionContainer = styled.div`
   align-items: center;
   justify-content: center;
 
-
   width: 90%;
 
   background-color: ${({ theme }) =>
@@ -75,4 +73,8 @@ const ActionContainer = styled.div`
 const StyledHeading = styled(Heading)`
   color: ${({ theme }) => theme.colors.primaryForeground};
   margin-bottom: ${({ theme }) => theme.margin.extraExtraLarge};
+`;
+
+const StyledText = styled(Text)`
+  text-align: center;
 `;

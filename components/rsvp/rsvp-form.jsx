@@ -185,33 +185,30 @@ const useForm = (formRef) => {
 
       const form = formRef.current;
 
-      const isValid = form.checkValidity();
+      form.checkValidity();
 
-      if (!isValid) {
-        const firstNameField = form.querySelector("input[name='fname']");
-        validateField(firstNameField, setFirstNameError);
+      const firstNameField = form.querySelector("input[name='fname']");
+      let isValid = validateField(firstNameField, setFirstNameError);
 
-        const lastNameField = form.querySelector("input[name='lname']");
-        validateField(lastNameField, setLastNameError);
+      const lastNameField = form.querySelector("input[name='lname']");
+      isValid = isValid & validateField(lastNameField, setLastNameError);
 
-        const emailField = form.querySelector("input[name='email']");
-        validateField(emailField, setEmailError);
+      const emailField = form.querySelector("input[name='email']");
+      isValid = isValid & validateField(emailField, setEmailError);
 
-        const attendingField = form.querySelector("input[name='attending']");
-        validateField(attendingField, setAttendingError);
+      const attendingField = form.querySelector("input[name='attending']");
+      isValid = isValid & validateField(attendingField, setAttendingError);
 
-        if (attending) {
-          const mealChoiceField = form.querySelector(
-            "input[name='mealChoice']"
-          );
-          validateField(mealChoiceField, setMealChoiceError);
+      if (attending) {
+        const mealChoiceField = form.querySelector("input[name='mealChoice']");
+        isValid = isValid & validateField(mealChoiceField, setMealChoiceError);
 
-          const ageField = form.querySelector("input[name='olderThanTwelve']");
-          validateField(ageField, setAgeError);
-        }
+        const ageField = form.querySelector("input[name='olderThanTwelve']");
+        isValid = isValid & validateField(ageField, setAgeError);
+      }
 
+      if(!isValid){
         setIsSubmitting(false);
-
         return;
       }
 
@@ -228,7 +225,12 @@ const useForm = (formRef) => {
           });
 
           if (response.status === 200) {
-            Router.push("/confirmation");
+            if(attending) {
+              Router.push("/attending-confirmation");
+            }
+            else{
+              Router.push("/absent-confirmation");
+            }
           }
         } finally {
           //setIsSubmitting(false);
@@ -269,12 +271,16 @@ const useForm = (formRef) => {
 };
 
 const validateField = (field, setError) => {
-  if (!field.checkValidity()) {
+  const isValid = field.checkValidity();
+
+  if (!isValid) {
     const message = field.validationMessage;
     setError(message);
   } else {
     setError(null);
   }
+
+  return isValid;
 };
 
 const Container = styled.div`
