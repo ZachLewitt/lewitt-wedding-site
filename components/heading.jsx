@@ -5,4 +5,5 @@ export const Heading = styled.h1`
   font-family: ${({ theme }) => theme.font.title};
   font-weight: normal;
   margin: 0px;
+  text-align: center;
 `;

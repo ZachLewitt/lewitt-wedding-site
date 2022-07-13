@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { transparentize } from "polished";
 import { ButtonGroup } from "@components/button-group";
 import { ActionButton } from "@components/buttons";
 import { Heading } from "@components/heading";
@@ -7,33 +8,36 @@ import { Text } from "@components/text";
 export default function Details() {
   return (
     <>
-      <HeroImageContainer>
-        <HeroImage />
-      </HeroImageContainer>
-      <Content>
-        <StyledHeading small>Thanks For Confirming</StyledHeading>
-        <Text>We can't wait to see you there!</Text>
-        <ButtonGroup>
-          <ActionButton as="a" href="/rsvp#rsvpFormSection">
-            Add Another Person
-          </ActionButton>
-        </ButtonGroup>
-      </Content>
+      <Image>
+        <ImageOverlay>
+          <Content>
+            <StyledHeading>Thanks For Confirming</StyledHeading>
+            <ActionContainer>
+              <Text bold>We can't wait to see you there!</Text>
+              <ActionButton as="a" href="/rsvp#rsvpFormSection">
+                Confirm Another Person
+              </ActionButton>
+            </ActionContainer>
+          </Content>
+        </ImageOverlay>
+      </Image>
     </>
   );
 }
 
-const HeroImageContainer = styled.div`
-  background: ${({ theme }) => theme.colors.lightPrimaryHighlight};
+const ImageOverlay = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+
+  background: rgba(0, 0, 0, 0.2);
 
   width: 100%;
-  height: auto;
+  height: 100%;
 `;
 
-const HeroImage = styled.div`
+const Image = styled.div`
   /* The image used */
   background-image: url("/confirmation.jpg");
 
@@ -43,24 +47,32 @@ const HeroImage = styled.div`
   background-size: cover;
 
   width: 100%;
-  max-width: 1400px;
-  height: 50vh;
+  height: 100%;
 `;
 
-const Content = styled.section`
+const Content = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+`;
 
-  width: 100%;
+const ActionContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+
+  width: 90%;
+
+  background-color: ${({ theme }) =>
+    transparentize(0.1, theme.colors.contentBackground)};
+  border: 1px solid ${({ theme }) => theme.colors.lightBorder};
+
+  padding: ${({ theme }) => theme.margin.large};
 `;
 
 const StyledHeading = styled(Heading)`
-  width: 100%;
-  text-align: center;
-
-  background: ${({ theme }) => theme.colors.darkPrimaryHighlight};
-
-  padding: ${({ theme }) => theme.margin.large};
-  margin-bottom: ${({ theme }) => theme.margin.large};
+  color: ${({ theme }) => theme.colors.primaryForeground};
+  margin-bottom: ${({ theme }) => theme.margin.extraExtraLarge};
 `;

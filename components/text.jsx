@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 export const Text = styled.p`
-  font-size: ${({ theme }) => theme.fontSize.medium};
+  font-size: ${({ theme, large }) =>
+    large ? theme.fontSize.large : theme.fontSize.medium};
   font-family: ${({ theme }) => theme.font.content};
   font-weight: ${({ bold }) => (bold ? "bold" : "normal")};
 
