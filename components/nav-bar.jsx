@@ -32,6 +32,9 @@ export const NavBar = () => {
         <Link href="/itinerary">
           <NavItem>Itinerary</NavItem>
         </Link>
+        <Link href="/accommodation">
+          <NavItem>Accommodation</NavItem>
+        </Link>
       </NavMenu>
     </Nav>
   );
@@ -106,6 +109,7 @@ const HomeLink = styled.a`
   font-size: ${({ theme }) => theme.fontSize.medium};
   font-family: ${({ theme }) => theme.font.menu};
   font-weight: bold;
+  font-style: italic;
   cursor: pointer;
 `;
 
