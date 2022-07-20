@@ -10,9 +10,9 @@ import {
   RadioInput,
   RadioGroup,
 } from "@components/forms";
-import { Section } from "@components/section";
 import { Separator } from "@components/separator";
 import { SubmitButton } from "@components/buttons";
+import { Card, CardContainer } from "@components/cards";
 
 export const RsvpForm = () => {
   const formRef = useRef();
@@ -47,8 +47,8 @@ export const RsvpForm = () => {
   } = useForm(formRef);
 
   return (
-    <Container>
-      <StyledSection id="rsvpFormSection">
+    <CardContainer>
+      <Card id="rsvpFormSection">
         <Form
           id="rsvpForm"
           ref={formRef}
@@ -151,8 +151,8 @@ export const RsvpForm = () => {
             </ButtonGroup>
           </Fieldset>
         </Form>
-      </StyledSection>
-    </Container>
+      </Card>
+    </CardContainer>
   );
 };
 
@@ -282,27 +282,6 @@ const validateField = (field, setError) => {
 
   return isValid;
 };
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  width: 100%;
-  //background: ${({ theme }) => theme.colors.darkSecondaryHighlight};
-  background-image: linear-gradient(
-    to bottom right,
-    ${({ theme }) => theme.colors.lightSecondaryHighlight},
-    ${({ theme }) => theme.colors.lightPrimaryHighlight}
-  );
-  padding: ${({ theme }) => theme.margin.extraExtraLarge}
-    ${({ theme }) => theme.margin.medium};
-`;
-
-const StyledSection = styled(Section)`
-  background: ${({ theme }) => theme.colors.contentBackground};
-  border: 1px solid ${({ theme }) => theme.colors.lightBorder};
-`;
 
 const StyledSeparator = styled(Separator)`
   margin-block: ${({ theme }) => theme.margin.medium};

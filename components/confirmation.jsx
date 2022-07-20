@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { transparentize } from "polished";
 import { ActionButton } from "@components/buttons";
-import { Heading } from "@components/heading";
+import { Heading } from "@components/headings";
 import { Text } from "@components/text";
 
 export const Confirmation = ({ headingText, summaryText, linkText }) => {

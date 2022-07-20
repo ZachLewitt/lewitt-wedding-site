@@ -23,6 +23,7 @@ export const ActionButton = styled.button`
   background: ${({ theme }) => theme.colors.primaryBackground};
 
   border: none;
+  width: fit-content;
 
   &:hover {
     background: ${({ theme }) => darken(0.2, theme.colors.primaryBackground)};

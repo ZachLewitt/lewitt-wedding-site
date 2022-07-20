@@ -1,8 +1,12 @@
 import styled from "styled-components";
 
 export const Text = styled.p`
-  font-size: ${({ theme, large }) =>
-    large ? theme.fontSize.large : theme.fontSize.medium};
+  font-size: ${({ theme, large, small }) =>
+    large
+      ? theme.fontSize.large
+      : small
+      ? theme.fontSize.small
+      : theme.fontSize.medium};
   font-family: ${({ theme }) => theme.font.content};
   font-weight: ${({ bold }) => (bold ? "bold" : "normal")};
 
@@ -10,4 +14,8 @@ export const Text = styled.p`
   margin: 0px 0px ${({ theme }) => theme.margin.medium} 0px;
 
   color: ${({ theme }) => theme.colors.contentForeground};
+
+  &:last-child {
+    margin-bottom: 0px;
+  }
 `;

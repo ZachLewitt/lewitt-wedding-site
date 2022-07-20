@@ -13,6 +13,5 @@ export const ContentSubheading = styled.h2`
   font-size: ${({ theme }) => theme.fontSize.large};
   font-family: ${({ theme }) => theme.font.content};
   font-weight: bold;
-  margin-top: ${({ theme }) => theme.margin.extraExtraLarge};
-  margin-bottom: ${({ theme }) => theme.margin.medium};
+  margin-block: 0px;
 `;

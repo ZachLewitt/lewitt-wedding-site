@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Image from "next/image";
-import { Heading } from "./heading";
+import { Heading } from "./headings";
 
 export const PageWrapper = ({ heading, image, children }) => {
   return (
@@ -51,6 +51,7 @@ const ContentWrapper = styled.div`
   align-items: center;
 
   width: 100%;
+  padding-top: ${({ theme }) => theme.margin.large};
 `;
 
 const HeadingWrapper = styled.div`
