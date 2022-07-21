@@ -14,7 +14,7 @@ export const NavBar = () => {
       isEnabled={isEnabled}
     >
       <Bar isEnabled={isEnabled}>
-        <Link href="/">
+        <Link href="/" passHref>
           <HomeLink>Lewitt Wedding</HomeLink>
         </Link>
         <StyledHamburgerButton
@@ -23,16 +23,16 @@ export const NavBar = () => {
         />
       </Bar>
       <NavMenu isEnabled={isEnabled}>
-        <Link href="/rsvp">
+        <Link href="/rsvp" passHref>
           <RsvpLink>RSVP</RsvpLink>
         </Link>
-        <Link href="/details">
+        <Link href="/details" passHref>
           <NavItem>Details</NavItem>
         </Link>
-        <Link href="/itinerary">
+        <Link href="/itinerary" passHref>
           <NavItem>Itinerary</NavItem>
         </Link>
-        <Link href="/accommodation">
+        <Link href="/accommodation" passHref>
           <NavItem>Accommodation</NavItem>
         </Link>
       </NavMenu>
