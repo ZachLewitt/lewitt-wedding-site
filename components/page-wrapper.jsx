@@ -20,6 +20,8 @@ export const PageWrapper = ({ heading, image, children }) => {
 
 const ImageWrapper = styled.div`
   width: 500px;
+  border-radius: 50%;
+  overflow: hidden;
 
   @media only screen and (max-width: 600px) {
     width: 250px;
@@ -29,8 +31,6 @@ const ImageWrapper = styled.div`
 const StyledImage = styled(Image)`
   width: 100%;
   height: auto;
-
-  border-radius: 50%;
 `;
 
 const TitleWrapper = styled.div`

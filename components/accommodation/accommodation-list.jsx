@@ -8,7 +8,7 @@ export const AccommodationList = ({ accommodations }) => {
   return (
     <CardList>
       {accommodations.map((x) => (
-        <StyledCardListItem>
+        <StyledCardListItem key={x.name}>
           <ImageContainer>
             <Image src={x.image} width={660} height={440} placeholder="blur" />
           </ImageContainer>
