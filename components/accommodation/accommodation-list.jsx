@@ -10,7 +10,7 @@ export const AccommodationList = ({ accommodations }) => {
       {accommodations.map((x) => (
         <StyledCardListItem>
           <ImageContainer>
-            <Image src={x.image} width={660} height={440} />
+            <Image src={x.image} width={660} height={440} placeholder="blur" />
           </ImageContainer>
             <CardHeading>{x.name}</CardHeading>
             <CardText small>{x.description}</CardText>

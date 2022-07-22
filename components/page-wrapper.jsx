@@ -7,7 +7,7 @@ export const PageWrapper = ({ heading, image, children }) => {
     <>
       <TitleWrapper>
         <ImageWrapper>
-          <StyledImage src={image} />
+          <StyledImage src={image} priority placeholder="blur" />
         </ImageWrapper>
         <HeadingWrapper>
           <Heading>{heading}</Heading>
