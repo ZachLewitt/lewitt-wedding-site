@@ -13,8 +13,9 @@ export default function Home() {
         layout="fill"
         priority
         objectFit="cover"
-        objectPosition="center"
         quality={100}
+        placeholder="blur"
+        loading="eager"
       />
       <Content>
         <StyledHeading>Zach & Kirsty</StyledHeading>
@@ -77,7 +78,7 @@ const Date = styled.span`
 `;
 
 const Location = styled.span`
-  font-size: ${({ theme }) => theme.fontSize.medium};
+  font-size: ${({ theme }) => theme.fontSize.large};
   font-family: ${({ theme }) => theme.font.title};
 
   margin-block-start: ${({ theme }) => theme.margin.large};

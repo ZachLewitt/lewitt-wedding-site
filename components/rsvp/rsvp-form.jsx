@@ -100,8 +100,8 @@ export const RsvpForm = () => {
             <RadioGroup
               labelText="Will you be attending the wedding?"
               onChange={(e) => setAttending(e.target.value === "true")}
-              onBlur={(e) => validateField(e.target, setAttendingError)}
-              onClick={(e) => validateField(e.target, setAttendingError)}
+              onBlur={(e) => validateCheckbox(e.target, setAttendingError)}
+              onClick={(e) => validateCheckbox(e.target, setAttendingError)}
               error={attendingError}
             >
               <RadioInput name="attending" value="true" required>
@@ -116,8 +116,8 @@ export const RsvpForm = () => {
               <RadioGroup
                 labelText="Do you require a vegetarian meal option?"
                 onChange={(e) => setMealChoice(e.target.value === "true")}
-                onBlur={(e) => validateField(e.target, setMealChoiceError)}
-                onClick={(e) => validateField(e.target, setMealChoiceError)}
+                onBlur={(e) => validateCheckbox(e.target, setMealChoiceError)}
+                onClick={(e) => validateCheckbox(e.target, setMealChoiceError)}
                 error={mealChoiceError}
               >
                 <RadioInput name="mealChoice" value="true" required>
@@ -131,8 +131,8 @@ export const RsvpForm = () => {
               <RadioGroup
                 labelText="Are you over the age of 12?"
                 onChange={(e) => setAge(e.target.value === "true")}
-                onBlur={(e) => validateField(e.target, setAgeError)}
-                onClick={(e) => validateField(e.target, setAgeError)}
+                onBlur={(e) => validateCheckbox(e.target, setAgeError)}
+                onClick={(e) => validateCheckbox(e.target, setAgeError)}
                 error={ageError}
               >
                 <RadioInput name="olderThanTwelve" value="true" required>
@@ -207,7 +207,7 @@ const useForm = (formRef) => {
         isValid = isValid & validateField(ageField, setAgeError);
       }
 
-      if(!isValid){
+      if (!isValid) {
         setIsSubmitting(false);
         return;
       }
@@ -225,10 +225,9 @@ const useForm = (formRef) => {
           });
 
           if (response.status === 200) {
-            if(attending) {
+            if (attending) {
               Router.push("/attending-confirmation");
-            }
-            else{
+            } else {
               Router.push("/absent-confirmation");
             }
           }
@@ -271,6 +270,21 @@ const useForm = (formRef) => {
 };
 
 const validateField = (field, setError) => {
+  const isValid = field.checkValidity();
+
+  if (!isValid) {
+    const message = field.validationMessage;
+    setError(message);
+  } else {
+    setError(null);
+  }
+
+  return isValid;
+};
+
+const validateCheckbox = (field, setError) => {
+  if (field.type !== "radio") return;
+
   const isValid = field.checkValidity();
 
   if (!isValid) {
