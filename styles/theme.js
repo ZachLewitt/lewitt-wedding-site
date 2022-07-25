@@ -1,7 +1,7 @@
 export const theme = {
   colors: {
-    menuForeground: "#616161",
-    menuBackground: "#FFF",
+    menuForeground: "#313131",
+    menuBackground: "#FFE6E6",
     contentForeground: "#313131",
     contentBackground: "#FFF",
     primaryForeground: "#FFF",
@@ -21,8 +21,8 @@ export const theme = {
   },
   fontSize: {
     extraLarge: "3rem",
-    large: "2rem",
-    medium: "1.2rem",
+    large: "1.8rem",
+    medium: "1.1rem",
   },
   lineHeight: {
     medium: "1.8rem"
@@ -35,10 +35,9 @@ export const theme = {
     extraExtraLarge: "28px",
   },
   font: {
-    serif: "Trebuchet, Tahoma, Arial, sans-serif",
-    content: "'Roboto', Trebuchet, Tahoma, Arial, sans-serif",
-    title: "'Playfair Display', Georgia, 'Times New Roman', Times, serif",
-    menu: "'Playfair Display', Georgia, 'Times New Roman', Times, serif"
+    content: "'Montserrat', Trebuchet, Tahoma, Arial, sans-serif",
+    title: "'Dancing Script', Georgia, 'Times New Roman', Times, serif",
+    menu: "'Dancing Script', Georgia, 'Times New Roman', Times, serif"
   },
   borderRadius: "2px",
 };

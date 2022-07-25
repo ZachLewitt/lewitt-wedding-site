@@ -66,7 +66,7 @@ const DayHeader = styled.div`
 
   width: 100%;
   height: 450px;
-  border: 10px solid ${({ theme }) => theme.colors.darkSecondaryHighlight};
+  border: 10px solid ${({ theme }) => theme.colors.darkPrimaryHighlight};
 
   background-image: url("/st-pauls.jpg");
   background-position: center;
@@ -103,7 +103,7 @@ const DayHeading = styled.h2`
 `;
 
 const Date = styled.p`
-  font-family: ${({ theme }) => theme.font.content};
+  font-family: ${({ theme }) => theme.font.title};
   font-size: 2.5rem;
   align-self: start;
   margin: ${({ theme }) => theme.margin.extraLarge};
@@ -114,11 +114,11 @@ const Date = styled.p`
 `;
 
 const EventList = styled.ul`
-  border: 10px solid ${({ theme }) => theme.colors.darkSecondaryHighlight};;
+  border: 10px solid ${({ theme }) => theme.colors.darkPrimaryHighlight};;
   border-top: none;
   margin: 0px;
   padding: ${({ theme }) => theme.margin.extraExtraLarge} 0px;
-  background: ${({ theme }) => theme.colors.lightSecondaryHighlight};
+  background: ${({ theme }) => theme.colors.lightPrimaryHighlight};
   display: flex;
   flex-direction: column;
   grid-gap: ${({ theme }) => theme.margin.extraExtraLarge};
@@ -129,8 +129,8 @@ const Event = styled.li`
   flex-direction: column;
   position: relative;
 
-  border-top: 7px solid ${({ theme }) => theme.colors.darkSecondaryHighlight};
-  border-bottom: 7px solid ${({ theme }) => theme.colors.darkSecondaryHighlight};
+  border-top: 7px solid ${({ theme }) => theme.colors.darkPrimaryHighlight};
+  border-bottom: 7px solid ${({ theme }) => theme.colors.darkPrimaryHighlight};
   margin: 0px;
   padding: ${({ theme }) => theme.margin.medium};
   padding-inline-start: ${({ theme }) => theme.margin.large};
@@ -150,7 +150,7 @@ const Event = styled.li`
     width: 28px;
     margin-top: -18px;
     background: ${({ theme }) => theme.colors.contentBackground};
-    border: 7px solid ${({ theme }) => theme.colors.darkSecondaryHighlight};
+    border: 7px solid ${({ theme }) => theme.colors.darkPrimaryHighlight};
     border-radius: 50%;
   }
 `;

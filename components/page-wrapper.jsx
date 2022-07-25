@@ -7,7 +7,7 @@ export const PageWrapper = ({ heading, image, children }) => {
     <>
       <TitleWrapper>
         <ImageWrapper>
-          <StyledImage src={image} priority placeholder="blur" />
+          <StyledImage src={image} layout="fill" priority placeholder="blur" />
         </ImageWrapper>
         <HeadingWrapper>
           <Heading>{heading}</Heading>
@@ -20,11 +20,14 @@ export const PageWrapper = ({ heading, image, children }) => {
 
 const ImageWrapper = styled.div`
   width: 500px;
+  height: 500px;
   border-radius: 50%;
   overflow: hidden;
+  position: relative;
 
   @media only screen and (max-width: 600px) {
-    width: 250px;
+    width: 300px;
+    height: 300px;
   }
 `;
 
@@ -39,7 +42,7 @@ const TitleWrapper = styled.div`
   align-items: center;
   grid-gap: ${({ theme }) => theme.margin.large};
 
-  background: ${({ theme }) => theme.colors.lightPrimaryHighlight};
+  background: ${({ theme }) => theme.colors.lightSecondaryHighlight};
 
   width: 100%;
   padding-top: ${({ theme }) => theme.margin.large};
@@ -59,7 +62,7 @@ const HeadingWrapper = styled.div`
   align-items: center;
   justify-content: center;
 
-  background: ${({ theme }) => theme.colors.darkPrimaryHighlight};
+  background: ${({ theme }) => theme.colors.darkSecondaryHighlight};
   
   width: 100%;
   padding: ${({ theme }) => theme.margin.large};

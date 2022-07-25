@@ -4,7 +4,7 @@ export const Legend = styled.legend`
   width: 100%;
 
   font-size: ${({ theme }) => theme.fontSize.large};
-  font-family: ${({ theme }) => theme.font.title};
+  font-family: ${({ theme }) => theme.font.content};
   font-weight: bold;
 
   color: ${({ theme }) => theme.colors.contentForeground};

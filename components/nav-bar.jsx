@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import styled from "styled-components";
+import { lighten } from "polished";
 import { HamburgerButton } from "./hamburger-button";
 
 export const NavBar = () => {
@@ -24,7 +25,7 @@ export const NavBar = () => {
       </Bar>
       <NavMenu isEnabled={isEnabled}>
         <Link href="/rsvp" passHref>
-          <RsvpLink>RSVP</RsvpLink>
+          <NavItem>RSVP</NavItem>
         </Link>
         <Link href="/details" passHref>
           <NavItem>Details</NavItem>
@@ -47,12 +48,10 @@ const Nav = styled.nav`
   width: 100%;
   background-color: ${({ theme }) => theme.colors.menuBackground};
   margin: 0px;
-  padding-inline: ${({ theme }) => theme.margin.medium};
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  border-block-end: 1px solid ${({ theme }) => theme.colors.lightBorder};
 
   @media only screen and (max-width: 600px) {
     flex-direction: column;
@@ -67,8 +66,11 @@ const Bar = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: center;
+
   width: 100%;
-  height: 65px;
+  height: 60px;
+
+  padding-inline: ${({ theme }) => theme.margin.large};
 
   @media only screen and (max-width: 600px) {
     border-block-end: ${({ isEnabled, theme }) =>
@@ -81,14 +83,16 @@ const NavMenu = styled.div`
   flex-direction: row;
   align-items: center;
   grid-gap: ${({ theme }) => theme.margin.medium};
-  margin-inline-end: ${({ theme }) => theme.margin.medium};
+  margin-inline-end: ${({ theme }) => theme.margin.large};
   flex-grow: 1;
 
   @media only screen and (max-width: 600px) {
-    flex-direction: column;
-    align-items: flex-start;
     display: ${({ isEnabled }) => (isEnabled ? "flex" : "none")};
-    margin: ${({ theme }) => theme.margin.medium};
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+    grid-gap: 0px;
   }
 `;
 
@@ -97,13 +101,22 @@ const NavItem = styled.a`
   text-decoration: none;
   font-size: ${({ theme }) => theme.fontSize.medium};
   font-family: ${({ theme }) => theme.font.menu};
+  font-weight: bold;
   white-space: nowrap;
   cursor: pointer;
+
+  @media only screen and (max-width: 600px) {
+    width: 100%;
+    padding: ${({ theme }) => theme.margin.extraLarge};
+    text-align: center;
+    border-block-end: 1px solid ${({ theme }) => theme.colors.lightBorder};
+    font-size: ${({ theme }) => theme.fontSize.large};
+    font-style: italic;
+  }
 `;
 
 const HomeLink = styled.a`
   flex-grow: 1;
-  margin-inline-start: ${({ theme }) => theme.margin.medium};
   color: ${({ theme }) => theme.colors.menuForeground};
   text-decoration: none;
   font-size: ${({ theme }) => theme.fontSize.medium};
@@ -115,20 +128,8 @@ const HomeLink = styled.a`
 
 const StyledHamburgerButton = styled(HamburgerButton)`
   display: none;
-  margin: ${({ theme }) => `${theme.margin.small} ${theme.margin.medium}`};
 
   @media only screen and (max-width: 600px) {
     display: block;
-  }
-`;
-
-const RsvpLink = styled(NavItem)`
-  @media only screen and (min-width: 768px) {
-    color: ${({ theme }) => theme.colors.primaryForeground};
-    background: ${({ theme }) => theme.colors.primaryBackground};
-    padding: ${({ theme }) => theme.margin.small};
-    border-radius: 4px;
-    border: none;
-    min-width: 40px;
   }
 `;

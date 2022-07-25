@@ -53,24 +53,33 @@ const Content = styled.div`
   color: ${({ theme }) => theme.colors.primaryForeground};
 `;
 
-export const StyledHeading = styled(Heading)`
+const StyledHeading = styled(Heading)`
   margin-block-end: 20px;
 `;
 
-export const Date = styled.span`
+const Date = styled.span`
   font-size: ${({ theme }) => theme.fontSize.large};
-  font-family: ${({ theme }) => theme.font.content};
+  font-family: ${({ theme }) => theme.font.title};
 
   margin-block-start: 150px;
 `;
 
-export const Location = styled.span`
+const Location = styled.span`
   font-size: ${({ theme }) => theme.fontSize.medium};
-  font-family: ${({ theme }) => theme.font.content};
+  font-family: ${({ theme }) => theme.font.title};
 
   margin-block-start: ${({ theme }) => theme.margin.large};
 `;
 
-export const LinkContainer = styled(ButtonGroup)`
+const LinkContainer = styled(ButtonGroup)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   margin-block-start: ${({ theme }) => theme.margin.large};
+
+  button, a {
+    height: 100%;
+    min-width: 86px;
+  }
 `;
