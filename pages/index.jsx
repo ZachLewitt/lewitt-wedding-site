@@ -1,28 +1,34 @@
 import styled from "styled-components";
 import { ActionButton, DetailButton } from "@components/buttons";
 import { Heading } from "@components/headings";
-import { ButtonGroup } from "@components/button-group"
+import { ButtonGroup } from "@components/button-group";
+import Image from "next/image";
+import landing from "../public/landing.jpg";
 
 export default function Home() {
   return (
     <>
-      <Background>
-        <Content>
-          <StyledHeading>Zach & Kirsty</StyledHeading>
-          <Date>
-            1st August 2023
-          </Date>
-          <Location>Greece, Rhodes, Lindos</Location>
-          <LinkContainer>
-            <DetailButton href="/details" as="a">
-              Details
-            </DetailButton>
-            <ActionButton href="/rsvp" as="a">
-              RSVP
-            </ActionButton>
-          </LinkContainer>
-        </Content>
-      </Background>
+      <StyledImage
+        src={landing}
+        layout="fill"
+        priority
+        objectFit="cover"
+        objectPosition="center"
+        quality={100}
+      />
+      <Content>
+        <StyledHeading>Zach & Kirsty</StyledHeading>
+        <Date>1st August 2023</Date>
+        <Location>Greece, Rhodes, Lindos</Location>
+        <LinkContainer>
+          <DetailButton href="/details" as="a">
+            Details
+          </DetailButton>
+          <ActionButton href="/rsvp" as="a">
+            RSVP
+          </ActionButton>
+        </LinkContainer>
+      </Content>
     </>
   );
 }
@@ -40,9 +46,15 @@ const Background = styled.div`
   background-size: cover;
 `;
 
+const StyledImage = styled(Image)`
+  z-index: 0;
+`;
+
 const Content = styled.div`
   height: 100%;
   width: 100%;
+
+  z-index: 1;
 
   display: flex;
   flex-direction: column;
@@ -78,7 +90,8 @@ const LinkContainer = styled(ButtonGroup)`
 
   margin-block-start: ${({ theme }) => theme.margin.large};
 
-  button, a {
+  button,
+  a {
     height: 100%;
     min-width: 86px;
   }
