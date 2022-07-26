@@ -117,38 +117,10 @@ const RadioContainer = styled.div`
   }
 `;
 
-const StyledRadioInput = styled.input`
-  appearance: none;
-  background-color: #fff;
-  margin: 0;
-  font: inherit;
-  color: currentColor;
-  width: 1.15em;
-  height: 1.15em;
-  border: 0.15em solid currentColor;
-  border-radius: 50%;
-
-  display: grid;
-  place-content: center;
-
-  &::before {
-    content: "";
-    width: 0.65em;
-    height: 0.65em;
-    border-radius: 50%;
-    transform: scale(0);
-    transition: 120ms transform ease-in-out;
-    box-shadow: inset 1em 1em currentColor;
-  }
-
-  &:checked::before {
-    transform: scale(1);
-  }
-`;
-
 const StyledRadioLabel = styled.p`
   display: flex;
   flex-direction: row;
+  align-items: center;
   grid-gap: ${({ theme }) => theme.margin.small};
 
   margin: 0px;
@@ -158,10 +130,62 @@ const StyledRadioLabel = styled.p`
   font-family: ${({ theme }) => theme.font.content};
 `;
 
+const RadioInputContainer = styled.span`
+  position: relative;
+  height: 1.4rem;
+  width: 1.4rem;
+`;
+
+const StyledRadioInput = styled.input`
+  appearance: none;
+  position: absolute;
+
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+
+  &:checked ~ *::before {
+    opacity: 1;
+    width: 0.65rem;
+    height: 0.65rem;
+  }
+
+  &:checked ~ * {
+    border: 3px solid ${({theme}) => theme.colors.darkBorder};
+  }
+`;
+
+const RadioIcon = styled.span`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 100%;
+
+  border: 3px solid ${({theme}) => theme.colors.lightBorder};
+  border-radius: 50%;
+
+  &::before {
+    content: "";
+    width: 0px;
+    height: 0px;  
+
+    background: ${({theme}) => theme.colors.darkBorder};
+    border-radius: 50%;
+    opacity 0;
+
+    transition: opacity 500ms;
+  }
+`;
+
 export const RadioInput = ({ children, ...other }) => {
   return (
     <StyledRadioLabel>
-      <StyledRadioInput type="radio" {...other} />
+      <RadioInputContainer>
+        <StyledRadioInput type="radio" {...other} />
+        <RadioIcon />
+      </RadioInputContainer>
       {children}
     </StyledRadioLabel>
   );
