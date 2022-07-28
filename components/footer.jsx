@@ -3,7 +3,7 @@ import { Text } from './text';
 
 export const Footer = () => {
   return <StyledFooter>
-    <Text>Designed by <strong>Lewitt Technologies</strong></Text>
+    <Text small>Designed by <strong>Lewitt Technologies</strong></Text>
   </StyledFooter>
 }
 
