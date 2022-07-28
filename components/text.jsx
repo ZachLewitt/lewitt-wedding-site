@@ -1,7 +1,8 @@
 import styled from "styled-components";
+import { lighten } from "polished";
 
 export const Text = styled.p`
-  font-size: ${({ theme, large, small }) =>
+  font-size: ${({ theme, large, small, subtle }) =>
     large
       ? theme.fontSize.large
       : small
@@ -13,7 +14,10 @@ export const Text = styled.p`
   line-height: ${({ theme }) => theme.lineHeight.medium};
   margin: 0px 0px ${({ theme }) => theme.margin.medium} 0px;
 
-  color: ${({ theme }) => theme.colors.contentForeground};
+  color: ${({ theme, subtle }) =>
+    subtle
+      ? lighten(0.2, theme.colors.contentForeground)
+      : theme.colors.contentForeground};
 
   &:last-child {
     margin-bottom: 0px;
