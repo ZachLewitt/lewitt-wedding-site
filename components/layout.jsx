@@ -3,8 +3,9 @@ import styled, { ThemeProvider } from "styled-components";
 import GlobalStyle from "@styles/globalStyles";
 import { theme } from "@styles/theme";
 import { NavBar } from "@components/nav-bar";
+import { Footer } from "@components/footer";
 
-export const Layout = ({ children }) => {
+export const Layout = ({ children, hideFooter }) => {
   return (
     <div>
       <Head>
@@ -25,17 +26,28 @@ export const Layout = ({ children }) => {
       <main>
         <ThemeProvider theme={theme}>
           <GlobalStyle />
-          <NavBar />
-          <ContentWrapper>{children}</ContentWrapper>
+          <PageContainer>
+            <NavBar />
+            <ContentWrapper>{children}</ContentWrapper>
+            {!hideFooter && <Footer />}
+          </PageContainer>
         </ThemeProvider>
       </main>
     </div>
   );
 };
 
+const PageContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: 100%;
+`;
+
 const ContentWrapper = styled.div`
   padding-top: 60px;
-  height: 100vh;
+  min-height: 100vh;
   background: ${({ theme }) => theme.colors.contentBackground};
   display: flex;
   flex-direction: column;

@@ -226,9 +226,9 @@ const useForm = (formRef) => {
 
           if (response.status === 200) {
             if (attending) {
-              Router.push("/attending-confirmation");
+              Router.push("/confirmation-attending");
             } else {
-              Router.push("/absent-confirmation");
+              Router.push("/confirmation-absent");
             }
           }
         } finally {

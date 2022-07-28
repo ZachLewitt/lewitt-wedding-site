@@ -1,6 +1,6 @@
 import { Confirmation } from "@components/confirmation";
 
-export default function AttendingConfirmation() {
+export default function ConfirmationAttending() {
   return (
     <Confirmation
       headingText="Thanks For Confirming"
@@ -9,3 +9,5 @@ export default function AttendingConfirmation() {
     />
   );
 }
+
+ConfirmationAttending.hideFooter = true;

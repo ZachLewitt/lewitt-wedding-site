@@ -4,6 +4,7 @@ import { Heading } from "@components/headings";
 import { ButtonGroup } from "@components/button-group";
 import Image from "next/image";
 import landing from "../public/landing.jpg";
+import { Layout } from "@components/layout";
 
 export default function Home() {
   return (
@@ -34,26 +35,18 @@ export default function Home() {
   );
 }
 
-const Background = styled.div`
-  /* The image used */
-  background-image: url("/landing.jpg");
-
-  height: 100%;
-  width: 100%;
-
-  /* Center and scale the image nicely */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-`;
+Home.hideFooter = true;
 
 const StyledImage = styled(Image)`
   z-index: 0;
 `;
 
 const Content = styled.div`
-  height: 100%;
-  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
 
   z-index: 1;
 

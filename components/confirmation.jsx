@@ -45,8 +45,11 @@ const Image = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
 
-  width: 100%;
-  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
 `;
 
 const Content = styled.div`
