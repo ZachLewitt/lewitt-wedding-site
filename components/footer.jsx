@@ -1,19 +1,36 @@
-import styled from 'styled-components';
-import { Text } from './text';
+import styled from "styled-components";
+import { ScrollTopButton } from "./scroll-top-button";
+import { Text } from "./text";
 
 export const Footer = () => {
-  return <StyledFooter>
-    <Text small subtle>Designed by <strong>Lewitt Technologies</strong></Text>
-  </StyledFooter>
-}
+  return (
+    <StyledFooter>
+      <ScrollTopButton />
+      <FooterContent>
+        <Text small subtle>
+          Designed by <strong>Lewitt Technologies</strong>
+        </Text>
+      </FooterContent>
+    </StyledFooter>
+  );
+};
 
 const StyledFooter = styled.footer`
-  margin-block-start: 100px;
-  height: 80px;
-  background: ${({ theme }) => theme.colors.darkPrimaryHighlight};
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+`;
+
+const FooterContent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   position: relative;
+  padding: ${({ theme }) => theme.margin.large};
+  width: 100%;
+  background: ${({ theme }) => theme.colors.darkPrimaryHighlight};
 `;
+
+

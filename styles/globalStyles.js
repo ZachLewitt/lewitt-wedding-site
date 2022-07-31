@@ -6,6 +6,7 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     margin: 0;
     font-family: Trebuchet, Tahoma, Arial, sans-serif;
+    scroll-behavior: smooth;
   }
 
   * {
