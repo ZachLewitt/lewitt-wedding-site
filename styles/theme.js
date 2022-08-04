@@ -40,4 +40,5 @@ export const theme = {
     menu: "'Dancing Script', Georgia, 'Times New Roman', Times, serif"
   },
   borderRadius: "2px",
+  maxContentSize: "700px",
 };

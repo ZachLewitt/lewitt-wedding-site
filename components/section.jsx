@@ -14,12 +14,9 @@ export const Section = styled.section`
 export const TextSection = ({ title, children, ...other }) => {
   return (
     <Section {...other}>
-      <StyledContentSubheading>{title}</StyledContentSubheading>
+      <ContentSubheading>{title}</ContentSubheading>
       {children}
     </Section>
   );
 };
 
-const StyledContentSubheading = styled(ContentSubheading)`
-  margin-block-end: ${({ theme }) => theme.margin.large};
-`

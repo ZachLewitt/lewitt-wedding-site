@@ -3,9 +3,9 @@ import { Text } from "./text";
 
 export const ScrollTopButton = (props) => {
   return (
-    <ScrollContainer>
-      <ScrollButton href="#" {...props}><ScrollIcon /></ScrollButton>
-      <ScrollText subtle>Back To Top</ScrollText>
+    <ScrollContainer {...props}>
+      <ScrollButton href="#"><ScrollIcon /></ScrollButton>
+      <ScrollText small>Back To Top</ScrollText>
     </ScrollContainer>
   );
 };
@@ -15,8 +15,6 @@ const ScrollContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-items: center;
-  margin-block-start: ${({ theme }) => theme.margin.large};
-  margin-block-end: ${({ theme }) => theme.margin.medium};
 `;
 
 const ScrollButton = styled.a`
