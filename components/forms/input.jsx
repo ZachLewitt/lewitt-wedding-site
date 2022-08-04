@@ -151,7 +151,7 @@ const StyledRadioInput = styled.input`
   }
 
   &:checked ~ * {
-    border: 3px solid ${({theme}) => theme.colors.darkBorder};
+    border: 3px solid ${({ theme }) => theme.colors.contentForeground};
   }
 `;
 
@@ -171,7 +171,7 @@ const RadioIcon = styled.span`
     width: 0px;
     height: 0px;  
 
-    background: ${({theme}) => theme.colors.darkBorder};
+    background: ${({theme}) => theme.colors.contentForeground};
     border-radius: 50%;
     opacity 0;
 
