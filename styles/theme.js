@@ -21,8 +21,9 @@ export const theme = {
   },
   fontSize: {
     extraLarge: "3rem",
-    large: "1.8rem",
+    large: "2rem",
     medium: "1.1rem",
+    small: "0.9rem",
   },
   lineHeight: {
     medium: "1.8rem"
