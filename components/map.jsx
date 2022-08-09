@@ -17,7 +17,6 @@ const StyledFrame = styled.iframe`
   width: 100%;
   max-width: 700px;
   height: 500px;
-  margin-block: ${({ theme }) => theme.margin.medium};
 
   @media only screen and (max-width: 600px) {
     height: 300px;

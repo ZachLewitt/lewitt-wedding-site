@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { lighten } from "polished";
 
 export const Text = styled.p`
   font-size: ${({ theme, large, small, subtle }) =>
@@ -16,7 +15,7 @@ export const Text = styled.p`
 
   color: ${({ theme, subtle }) =>
     subtle
-      ? lighten(0.2, theme.colors.contentForeground)
+      ? theme.colors.lightContentForeground
       : theme.colors.contentForeground};
 
   &:last-child {

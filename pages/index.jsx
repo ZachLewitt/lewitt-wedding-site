@@ -4,7 +4,6 @@ import { Heading } from "@components/headings";
 import { ButtonGroup } from "@components/button-group";
 import Image from "next/image";
 import landing from "../public/landing.jpg";
-import { Layout } from "@components/layout";
 
 export default function Home() {
   return (

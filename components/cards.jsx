@@ -1,3 +1,5 @@
+import Image from "next/image";
+import { Fade } from "react-reveal";
 import styled, { css } from "styled-components";
 
 const containerStyles = css`
@@ -14,10 +16,19 @@ const containerStyles = css`
   );
   padding: ${({ theme }) => theme.margin.extraExtraLarge}
     ${({ theme }) => theme.margin.medium};
+  grid-gap: ${({ theme }) => theme.margin.medium};
 `;
 
-const cardStyles = css`
+export const CardContainer = styled.div`
+  ${containerStyles}
+`;
+
+const CardWrapper = styled.div`
   max-width: 700px;
+  width: 100%;
+`;
+
+const CardBox = styled.div`
   width: 100%;
   padding: ${({ theme }) => theme.margin.large};
 
@@ -25,13 +36,39 @@ const cardStyles = css`
   border: 1px solid ${({ theme }) => theme.colors.lightBorder};
 `;
 
-export const CardContainer = styled.div`
-  ${containerStyles}
-`;
+const FadingCard = ({ fade, left, right, as, children }) => {
+  if (!left && !right) {
+    left = true;
+  }
 
-export const Card = styled.div`
-  ${cardStyles}
-`;
+  if (fade) {
+    return (
+      <CardWrapper as={as}>
+        <Fade left={left} right={right}>
+          {children}
+        </Fade>
+      </CardWrapper>
+    );
+  }
+
+  return <CardWrapper as={as}>{children}</CardWrapper>;
+};
+
+export const Card = ({ fade, left, right, children, ...other }) => {
+  return (
+    <FadingCard fade={fade} left={left} right={right}>
+      <CardBox {...other}>{children}</CardBox>
+    </FadingCard>
+  );
+};
+
+export const CardImage = ({ fade, left, right, ...other }) => {
+  return (
+    <FadingCard fade={fade} left={left} right={right}>
+      <Image {...other} />
+    </FadingCard>
+  );
+};
 
 export const CardList = styled.ul`
   ${containerStyles}
@@ -39,8 +76,10 @@ export const CardList = styled.ul`
   list-style-type: none;
 `;
 
-export const CardListItem = styled.li`
-  ${cardStyles}
-
-  margin: ${({ theme }) => theme.margin.medium} 0px;
-`;
+export const CardListItem = ({ fade, left, right, children, ...other }) => {
+  return (
+    <FadingCard fade={fade} left={left} right={right} as="li">
+      <CardBox {...other}>{children}</CardBox>
+    </FadingCard>
+  );
+};

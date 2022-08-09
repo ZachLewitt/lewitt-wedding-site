@@ -8,15 +8,15 @@ export const AccommodationList = ({ accommodations }) => {
   return (
     <CardList>
       {accommodations.map((x) => (
-        <StyledCardListItem key={x.name}>
+        <StyledCardListItem key={x.name} fade>
           <ImageContainer>
             <Image src={x.image} width={660} height={440} placeholder="blur" />
           </ImageContainer>
-            <CardHeading>{x.name}</CardHeading>
-            <CardText small>{x.description}</CardText>
-            <StyledButton as="a" href={x.link}>
-              View Site
-            </StyledButton>
+          <CardHeading>{x.name}</CardHeading>
+          <CardText small>{x.description}</CardText>
+          <StyledButton as="a" href={x.link}>
+            View Site
+          </StyledButton>
         </StyledCardListItem>
       ))}
     </CardList>
@@ -68,7 +68,7 @@ const CardText = styled(Text)`
 const ImageContainer = styled.div`
   grid-row: 1 / span 3;
   grid-column: 1;
-  
+
   align-self: center;
 
   @media only screen and (max-width: 600px) {
@@ -89,6 +89,6 @@ const StyledButton = styled(ActionButton)`
     grid-column: 1 / span 2;
 
     justify-self: center;
-    width: 80%
+    width: 80%;
   }
 `;

@@ -54,7 +54,6 @@ const ContentWrapper = styled.div`
   align-items: center;
 
   width: 100%;
-  padding-top: ${({ theme }) => theme.margin.large};
 `;
 
 const HeadingWrapper = styled.div`

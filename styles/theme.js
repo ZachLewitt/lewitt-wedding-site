@@ -1,8 +1,11 @@
+import { lighten } from "polished";
+
 export const theme = {
   colors: {
     menuForeground: "#313131",
     menuBackground: "#FFE6E6",
     contentForeground: "#313131",
+    lightContentForeground: lighten(0.2, "#313131"),
     contentBackground: "#FFF",
     primaryForeground: "#FFF",
     primaryBackground: "#2da1e7",
@@ -22,6 +25,7 @@ export const theme = {
   fontSize: {
     extraLarge: "3rem",
     large: "2rem",
+    mediumLarge: "1.6rem",
     medium: "1.1rem",
     small: "0.9rem",
   },

@@ -60,7 +60,7 @@ export const FooterHeading = styled.h5`
   font-weight: bold;
   margin-block: 0px;
   margin-block-end: ${({ theme }) => theme.margin.medium};
-  width: 100%;
+  margin-inline: ${({ theme }) => theme.margin.medium};
   max-width: 700px;
   text-align: center;
   padding-block-end: ${({ theme }) => theme.margin.small};

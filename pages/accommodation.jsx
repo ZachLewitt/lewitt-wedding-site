@@ -5,13 +5,15 @@ import { PageWrapper } from "@components/page-wrapper";
 import { TextSection } from "@components/section";
 import { Map } from "@components/map";
 import { AccommodationList } from "@components/accommodation";
+import { Card, CardContainer } from "@components/cards";
 
 const accommodations = [
   {
     name: "Blue Dream Luxury Villas",
     image: blueDreamImage,
     link: "https://www.bluedreamvillas.gr/en/content?id=3247",
-    description: "Luxury villas in Pefkos, that would suit a family or larger group.",
+    description:
+      "Luxury villas in Pefkos, that would suit a family or larger group.",
   },
 ];
 
@@ -37,8 +39,12 @@ export default function Details() {
           miles from Lindos which will make getting to and from the venue on the
           day easy.
         </Text>
-        <Map src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d21699.44984100908!2d28.046061636179942!3d36.0534294470096!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14950efa97e28b47%3A0xce5a916bc64dba0e!2sPefki%2C%20Greece!5e0!3m2!1sen!2suk!4v1658248169372!5m2!1sen!2suk" />
       </TextSection>
+      <CardContainer>
+        <Card fade left>
+          <Map src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d21699.44984100908!2d28.046061636179942!3d36.0534294470096!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14950efa97e28b47%3A0xce5a916bc64dba0e!2sPefki%2C%20Greece!5e0!3m2!1sen!2suk!4v1658248169372!5m2!1sen!2suk" />
+        </Card>
+      </CardContainer>
       <TextSection title="Recommendations">
         <Text>
           If you're looking for some inspiration on places to stay then below is

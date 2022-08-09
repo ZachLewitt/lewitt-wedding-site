@@ -9,10 +9,16 @@ export const Heading = styled.h1`
   text-align: center;
 `;
 
+export const Subheading = styled.h3`
+  font-size: ${({ theme }) => theme.fontSize.large};
+  font-family: ${({ theme }) => theme.font.title};
+  font-weight: normal;
+  margin: 0px;
+`;
+
 export const ContentSubheading = styled.h2`
   font-size: ${({ theme }) => theme.fontSize.large};
   font-family: ${({ theme }) => theme.font.content};
   font-weight: bold;
-  margin-block: 0px;
-  margin-block-end: ${({ theme }) => theme.margin.large};
+  margin-block: ${({ theme }) => theme.margin.large};
 `;
