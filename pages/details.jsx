@@ -52,6 +52,9 @@ const Welcome = () => (
           <DescriptionTerm>Date:</DescriptionTerm>
           <Separator />
           <DescriptionDefinition>1st August 2023</DescriptionDefinition>
+          <DescriptionTerm>Dress Code:</DescriptionTerm>
+          <Separator />
+          <DescriptionDefinition>Smart Casual</DescriptionDefinition>
         </DescriptionList>
       </Card>
     </CardContainer>

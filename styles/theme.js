@@ -30,7 +30,7 @@ export const theme = {
     small: "0.9rem",
   },
   lineHeight: {
-    medium: "1.8rem"
+    medium: "1.8rem",
   },
   margin: {
     small: "7px",
@@ -42,8 +42,9 @@ export const theme = {
   font: {
     content: "'Montserrat', Trebuchet, Tahoma, Arial, sans-serif",
     title: "'Dancing Script', Georgia, 'Times New Roman', Times, serif",
-    menu: "'Dancing Script', Georgia, 'Times New Roman', Times, serif"
+    menu: "'Dancing Script', Georgia, 'Times New Roman', Times, serif",
   },
   borderRadius: "2px",
   maxContentSize: "700px",
+  maxModalSize: "500px",
 };

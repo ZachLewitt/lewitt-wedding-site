@@ -32,18 +32,16 @@ export const RsvpForm = () => {
     emailError,
     setEmail,
     setEmailError,
-    attending,
-    attendingError,
-    setAttending,
-    setAttendingError,
-    mealChoice,
-    mealChoiceError,
-    setMealChoice,
-    setMealChoiceError,
-    age,
-    ageError,
-    setAge,
-    setAgeError,
+    isAttending,
+    isAttendingError,
+    setIsAttending,
+    setIsAttendingError,
+    isVegetarianError,
+    setIsVegetarian,
+    setIsVegetarianError,
+    isOlderThanTwelveError,
+    setIsOlderThanTwelve,
+    setIsOlderThanTwelveError,
   } = useForm(formRef);
 
   return (
@@ -99,46 +97,54 @@ export const RsvpForm = () => {
             <StyledSeparator />
             <RadioGroup
               labelText="Will you be attending the wedding?"
-              onChange={(e) => setAttending(e.target.value === "true")}
-              onBlur={(e) => validateCheckbox(e.target, setAttendingError)}
-              onClick={(e) => validateCheckbox(e.target, setAttendingError)}
-              error={attendingError}
+              onChange={(e) => setIsAttending(e.target.value === "true")}
+              onBlur={(e) => validateCheckbox(e.target, setIsAttendingError)}
+              onClick={(e) => validateCheckbox(e.target, setIsAttendingError)}
+              error={isAttendingError}
             >
-              <RadioInput name="attending" value="true" required>
+              <RadioInput name="isAttending" value="true" required>
                 Yes
               </RadioInput>
-              <RadioInput name="attending" value="false" required>
+              <RadioInput name="isAttending" value="false" required>
                 No
               </RadioInput>
             </RadioGroup>
-            <ToggleFieldContainer isVisible={attending}>
+            <ToggleFieldContainer isVisible={isAttending}>
               <StyledSeparator />
               <RadioGroup
-                labelText="Do you require a vegetarian meal option?"
-                onChange={(e) => setMealChoice(e.target.value === "true")}
-                onBlur={(e) => validateCheckbox(e.target, setMealChoiceError)}
-                onClick={(e) => validateCheckbox(e.target, setMealChoiceError)}
-                error={mealChoiceError}
+                labelText="Are you vegetarian?"
+                onChange={(e) => setIsVegetarian(e.target.value === "true")}
+                onBlur={(e) => validateCheckbox(e.target, setIsVegetarianError)}
+                onClick={(e) =>
+                  validateCheckbox(e.target, setIsVegetarianError)
+                }
+                error={isVegetarianError}
               >
-                <RadioInput name="mealChoice" value="true" required>
+                <RadioInput name="isVegetarian" value="true" required>
                   Yes
                 </RadioInput>
-                <RadioInput name="mealChoice" value="false" required>
+                <RadioInput name="isVegetarian" value="false" required>
                   No
                 </RadioInput>
               </RadioGroup>
               <StyledSeparator />
               <RadioGroup
                 labelText="Are you over the age of 12?"
-                onChange={(e) => setAge(e.target.value === "true")}
-                onBlur={(e) => validateCheckbox(e.target, setAgeError)}
-                onClick={(e) => validateCheckbox(e.target, setAgeError)}
-                error={ageError}
+                onChange={(e) =>
+                  setIsOlderThanTwelve(e.target.value === "true")
+                }
+                onBlur={(e) =>
+                  validateCheckbox(e.target, setIsOlderThanTwelveError)
+                }
+                onClick={(e) =>
+                  validateCheckbox(e.target, setIsOlderThanTwelveError)
+                }
+                error={isOlderThanTwelveError}
               >
-                <RadioInput name="olderThanTwelve" value="true" required>
+                <RadioInput name="isOlderThanTwelve" value="true" required>
                   Yes
                 </RadioInput>
-                <RadioInput name="olderThanTwelve" value="false" required>
+                <RadioInput name="isOlderThanTwelve" value="false" required>
                   No
                 </RadioInput>
               </RadioGroup>
@@ -166,14 +172,14 @@ const useForm = (formRef) => {
   const [email, setEmail] = useState("");
   const [emailError, setEmailError] = useState();
 
-  const [attending, setAttending] = useState(null);
-  const [attendingError, setAttendingError] = useState();
+  const [isAttending, setIsAttending] = useState(null);
+  const [isAttendingError, setIsAttendingError] = useState();
 
-  const [mealChoice, setMealChoice] = useState(null);
-  const [mealChoiceError, setMealChoiceError] = useState();
+  const [isVegetarian, setIsVegetarian] = useState(null);
+  const [isVegetarianError, setIsVegetarianError] = useState();
 
-  const [age, setAge] = useState(null);
-  const [ageError, setAgeError] = useState();
+  const [isOlderThanTwelve, setIsOlderThanTwelve] = useState(null);
+  const [isOlderThanTwelveError, setIsOlderThanTwelveError] = useState();
 
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -196,15 +202,22 @@ const useForm = (formRef) => {
       const emailField = form.querySelector("input[name='email']");
       isValid = isValid & validateField(emailField, setEmailError);
 
-      const attendingField = form.querySelector("input[name='attending']");
-      isValid = isValid & validateField(attendingField, setAttendingError);
+      const isAttendingField = form.querySelector("input[name='isAttending']");
+      isValid = isValid & validateField(isAttendingField, setIsAttendingError);
 
-      if (attending) {
-        const mealChoiceField = form.querySelector("input[name='mealChoice']");
-        isValid = isValid & validateField(mealChoiceField, setMealChoiceError);
+      if (isAttending) {
+        const isVegetarianField = form.querySelector(
+          "input[name='isVegetarian']"
+        );
+        isValid =
+          isValid & validateField(isVegetarianField, setIsVegetarianError);
 
-        const ageField = form.querySelector("input[name='olderThanTwelve']");
-        isValid = isValid & validateField(ageField, setAgeError);
+        const isOlderThanTwelveField = form.querySelector(
+          "input[name='isOlderThanTwelve']"
+        );
+        isValid =
+          isValid &
+          validateField(isOlderThanTwelveField, setIsOlderThanTwelveError);
       }
 
       if (!isValid) {
@@ -225,7 +238,7 @@ const useForm = (formRef) => {
           });
 
           if (response.status === 200) {
-            if (attending) {
+            if (isAttending) {
               Router.push("/confirmation-attending");
             } else {
               Router.push("/confirmation-absent");
@@ -236,7 +249,15 @@ const useForm = (formRef) => {
         }
       })();
     },
-    [firstName, lastName, email, attending, mealChoice, age, formRef]
+    [
+      firstName,
+      lastName,
+      email,
+      isAttending,
+      isVegetarian,
+      isOlderThanTwelve,
+      formRef,
+    ]
   );
 
   return {
@@ -254,18 +275,18 @@ const useForm = (formRef) => {
     emailError,
     setEmail,
     setEmailError,
-    attending,
-    attendingError,
-    setAttending,
-    setAttendingError,
-    mealChoice,
-    mealChoiceError,
-    setMealChoice,
-    setMealChoiceError,
-    age,
-    ageError,
-    setAge,
-    setAgeError,
+    isAttending,
+    isAttendingError,
+    setIsAttending,
+    setIsAttendingError,
+    isVegetarian,
+    isVegetarianError,
+    setIsVegetarian,
+    setIsVegetarianError,
+    isOlderThanTwelve,
+    isOlderThanTwelveError,
+    setIsOlderThanTwelve,
+    setIsOlderThanTwelveError,
   };
 };
 

@@ -3,68 +3,42 @@ import { transparentize } from "polished";
 import { ActionButton } from "@components/buttons";
 import { Heading } from "@components/headings";
 import { Text } from "@components/text";
+import { Separator } from "./separator";
+import { BackgroundImage } from "./background-image";
+import image from "../public/confirmation.jpg";
 
 export const Confirmation = ({ headingText, summaryText, linkText }) => {
   return (
     <>
-      <Image>
-        <ImageOverlay>
-          <Content>
-            <StyledHeading>{headingText}</StyledHeading>
-            <ActionContainer>
-              <StyledText bold>{summaryText}</StyledText>
-              <ActionButton as="a" href="/rsvp#rsvpFormSection">
-                {linkText}
-              </ActionButton>
-            </ActionContainer>
-          </Content>
-        </ImageOverlay>
-      </Image>
+      <StyledBackgroundImage src={image}>
+        <Modal>
+          <Heading>{headingText}</Heading>
+          <StyledSeparator thick />
+          <StyledText>{summaryText}</StyledText>
+          <ActionButton as="a" href="/rsvp#rsvpFormSection">
+            {linkText}
+          </ActionButton>
+        </Modal>
+      </StyledBackgroundImage>
     </>
   );
 };
 
-const ImageOverlay = styled.div`
+const StyledBackgroundImage = styled(BackgroundImage)`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
-  background: rgba(0, 0, 0, 0.2);
-
-  width: 100%;
-  height: 100%;
 `;
 
-const Image = styled.div`
-  /* The image used */
-  background-image: url("/confirmation.jpg");
-
-  /* Center and scale the image nicely */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-
-  position: absolute;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-`;
-
-const Content = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
-
-const ActionContainer = styled.div`
+const Modal = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 
   width: 90%;
+  max-width: ${({ theme }) => theme.maxModalSize};
 
   background-color: ${({ theme }) =>
     transparentize(0.1, theme.colors.contentBackground)};
@@ -73,9 +47,9 @@ const ActionContainer = styled.div`
   padding: ${({ theme }) => theme.margin.large};
 `;
 
-const StyledHeading = styled(Heading)`
-  color: ${({ theme }) => theme.colors.primaryForeground};
-  margin-bottom: ${({ theme }) => theme.margin.extraExtraLarge};
+const StyledSeparator = styled(Separator)`
+  margin-block-start: ${({ theme }) => theme.margin.small};
+  margin-block-end: ${({ theme }) => theme.margin.large};
 `;
 
 const StyledText = styled(Text)`
