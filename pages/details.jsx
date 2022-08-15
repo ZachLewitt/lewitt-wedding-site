@@ -21,7 +21,11 @@ import beachHoliday from "../public/beach-holiday.jpg";
 
 export default function Details() {
   return (
-    <PageWrapper heading="Lewitt Wedding" image={image}>
+    <PageWrapper
+      heading="Lewitt Wedding"
+      image={image}
+      imageAlt="Zach and Kirsty holding hands"
+    >
       <Welcome />
       <Wedding />
       <Holiday />
@@ -35,8 +39,8 @@ const Welcome = () => (
     <TextSection title="Welcome">
       <Text>
         In September 2021 Zach popped the question on holiday in Rhodes. We both
-        really loved the island and thought what better place to get celebrate
-        the big day.
+        really loved the island and thought what better place to celebrate the
+        big day.
       </Text>
       <Text>
         As our family and friends we would really love for you to join us in the
@@ -70,6 +74,11 @@ const Wedding = () => (
         overlooking the bay.
       </Text>
       <Text>
+        We are expecting the temperature to be a little bit hotter than a usual
+        british wedding so make sure to prioritise comfort in the outfit you
+        choose to wear.
+      </Text>
+      <Text>
         After the ceremony we will then be taking a short boat ride to the
         reception venue, Skala Beach Restaurant. It's here we will spend the
         rest of the evening.
@@ -78,6 +87,7 @@ const Wedding = () => (
     <CardContainer>
       <CardImage
         src={lindosBay}
+        alt="Lindos Bay"
         layout="responsive"
         width={700}
         height={524}
@@ -107,6 +117,7 @@ const Holiday = () => (
     <CardContainer>
       <CardImage
         src={beachHoliday}
+        alt="Deck chairs by the beach"
         layout="responsive"
         width={700}
         height={466}

@@ -99,7 +99,7 @@ const NavMenu = styled.div`
 const NavItem = styled.a`
   color: ${({ theme }) => theme.colors.menuForeground};
   text-decoration: none;
-  font-size: ${({ theme }) => theme.fontSize.medium};
+  font-size: 1.4rem;
   font-family: ${({ theme }) => theme.font.menu};
   font-weight: bold;
   white-space: nowrap;
@@ -119,7 +119,7 @@ const HomeLink = styled.a`
   flex-grow: 1;
   color: ${({ theme }) => theme.colors.menuForeground};
   text-decoration: none;
-  font-size: ${({ theme }) => theme.fontSize.medium};
+  font-size: 1.4rem;
   font-family: ${({ theme }) => theme.font.menu};
   font-weight: bold;
   font-style: italic;

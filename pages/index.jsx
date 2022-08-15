@@ -7,7 +7,10 @@ import { BackgroundImage } from "@components/background-image";
 
 export default function Home() {
   return (
-    <StyledBackgroundImage src={landing}>
+    <StyledBackgroundImage
+      src={landing}
+      alt="Zach and Kirsty sitting on the rocks"
+    >
       <StyledHeading>Zach & Kirsty</StyledHeading>
       <Date small>1st August 2023</Date>
       <Location small>Greece, Rhodes, Lindos</Location>

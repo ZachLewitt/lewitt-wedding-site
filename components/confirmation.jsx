@@ -10,7 +10,10 @@ import image from "../public/confirmation.jpg";
 export const Confirmation = ({ headingText, summaryText, linkText }) => {
   return (
     <>
-      <StyledBackgroundImage src={image}>
+      <StyledBackgroundImage
+        src={image}
+        alt="Zach and Kirsty watching the sunset"
+      >
         <Modal>
           <Heading>{headingText}</Heading>
           <StyledSeparator thick />

@@ -1,19 +1,25 @@
 import styled from "styled-components";
 import image from "../public/itinerary.jpg";
+import stPaulsImage from "../public/st-pauls.jpg";
 import { PageWrapper } from "@components/page-wrapper";
 import { Text } from "@components/text";
 import { Section } from "@components/section";
+import { BackgroundImage } from "@components/background-image";
 
 export default function Itinerary() {
   return (
-    <PageWrapper heading="Itinerary" image={image}>
+    <PageWrapper
+      heading="Itinerary"
+      image={image}
+      imageAlt="Zach and Kirsty looking out to sea"
+    >
       <Section>
         <DayContainer>
           <DayHeader>
-            <DayHeaderContent>
+            <HeaderImage src={stPaulsImage} alt="St Pauls Chapel">
               <Date>1st August</Date>
               <DayHeading>The Wedding</DayHeading>
-            </DayHeaderContent>
+            </HeaderImage>
           </DayHeader>
           <EventList>
             <Event>
@@ -63,26 +69,18 @@ const DayContainer = styled.div`
 
 const DayHeader = styled.div`
   display: flex;
+  position: relative;
 
   width: 100%;
   height: 450px;
   border: 10px solid ${({ theme }) => theme.colors.darkPrimaryHighlight};
-
-  background-image: url("/st-pauls.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
 
   @media only screen and (max-width: 600px) {
     height: 250px;
   }
 `;
 
-const DayHeaderContent = styled.div`
-  width: 100%;
-  height: 100%;
-
-  background: rgba(0, 0, 0, 0.4);
+const HeaderImage = styled(BackgroundImage)`
   color: ${({ theme }) => theme.colors.primaryForeground};
 
   display: flex;
@@ -114,7 +112,7 @@ const Date = styled.p`
 `;
 
 const EventList = styled.ul`
-  border: 10px solid ${({ theme }) => theme.colors.darkPrimaryHighlight};;
+  border: 10px solid ${({ theme }) => theme.colors.darkPrimaryHighlight};
   border-top: none;
   margin: 0px;
   padding: ${({ theme }) => theme.margin.extraExtraLarge} 0px;

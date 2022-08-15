@@ -1,11 +1,12 @@
-import image from "../public/details.jpg";
+import image from "../public/accommodation.jpg";
 import blueDreamImage from "../public/blue-dream-villas.jpg";
+import hotelPoolImage from "../public/hotel-pool.jpg";
 import { Text } from "@components/text";
 import { PageWrapper } from "@components/page-wrapper";
 import { TextSection } from "@components/section";
 import { Map } from "@components/map";
 import { AccommodationList } from "@components/accommodation";
-import { Card, CardContainer } from "@components/cards";
+import { Card, CardContainer, CardImage } from "@components/cards";
 
 const accommodations = [
   {
@@ -19,7 +20,11 @@ const accommodations = [
 
 export default function Details() {
   return (
-    <PageWrapper heading="Accommodation" image={image}>
+    <PageWrapper
+      heading="Accommodation"
+      image={image}
+      imageAlt="Zach and Kirsty by the sea"
+    >
       <TextSection title="Where To Stay">
         <Text>
           Rhodes is a big island with plenty of places to stay so there will be
@@ -31,6 +36,18 @@ export default function Details() {
           large it can take some time to travel from one side to the other.
         </Text>
       </TextSection>
+      <CardContainer>
+        <CardImage
+          src={hotelPoolImage}
+          alt="Swimming pool with sun beds"
+          layout="responsive"
+          width={700}
+          height={466}
+          placeholder="blur"
+          fade
+          left
+        />
+      </CardContainer>
       <TextSection title="Pefkos">
         <Text>
           We will be staying in the resort town of Pefkos and recommend it to
@@ -41,7 +58,7 @@ export default function Details() {
         </Text>
       </TextSection>
       <CardContainer>
-        <Card fade left>
+        <Card fade right>
           <Map src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d21699.44984100908!2d28.046061636179942!3d36.0534294470096!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14950efa97e28b47%3A0xce5a916bc64dba0e!2sPefki%2C%20Greece!5e0!3m2!1sen!2suk!4v1658248169372!5m2!1sen!2suk" />
         </Card>
       </CardContainer>

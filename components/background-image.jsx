@@ -1,11 +1,12 @@
 import styled from "styled-components";
 import Image from "next/image";
 
-export const BackgroundImage = ({ children, src, ...other }) => {
+export const BackgroundImage = ({ children, src, alt, ...other }) => {
   return (
     <Container>
       <StyledImage
         src={src}
+        alt={alt}
         layout="fill"
         priority
         objectFit="cover"

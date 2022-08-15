@@ -2,12 +2,18 @@ import styled from "styled-components";
 import Image from "next/image";
 import { Heading } from "./headings";
 
-export const PageWrapper = ({ heading, image, children }) => {
+export const PageWrapper = ({ heading, image, imageAlt, children }) => {
   return (
     <>
       <TitleWrapper>
         <ImageWrapper>
-          <StyledImage src={image} layout="fill" priority placeholder="blur" />
+          <StyledImage
+            src={image}
+            width={500}
+            height={500}
+            priority
+            placeholder="blur"
+          />
         </ImageWrapper>
         <HeadingWrapper>
           <Heading>{heading}</Heading>
@@ -26,8 +32,8 @@ const ImageWrapper = styled.div`
   position: relative;
 
   @media only screen and (max-width: 600px) {
-    width: 300px;
-    height: 300px;
+    width: 320px;
+    height: 320px;
   }
 `;
 
@@ -62,7 +68,7 @@ const HeadingWrapper = styled.div`
   justify-content: center;
 
   background: ${({ theme }) => theme.colors.darkSecondaryHighlight};
-  
+
   width: 100%;
   padding: ${({ theme }) => theme.margin.large};
 `;
