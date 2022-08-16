@@ -32,6 +32,10 @@ export default class MyDocument extends Document {
       <Html lang="en">
         <Head>
           <link rel="shortcut icon" href="/favicon.ico" />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Montserrat:wght@400;700&display=swap"
+            rel="stylesheet"
+          />
         </Head>
         <body>
           <Main />

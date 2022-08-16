@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { useState } from "react";
 import styled from "styled-components";
-import { lighten } from "polished";
 import { HamburgerButton } from "./hamburger-button";
 
 export const NavBar = () => {
@@ -82,7 +81,7 @@ const NavMenu = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  grid-gap: ${({ theme }) => theme.margin.medium};
+  grid-gap: ${({ theme }) => theme.margin.large};
   margin-inline-end: ${({ theme }) => theme.margin.large};
   flex-grow: 1;
 
