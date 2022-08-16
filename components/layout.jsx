@@ -39,6 +39,7 @@ const PageContainer = styled.div`
   position: relative;
   height: 100%;
   max-width: 100vw;
+  overflow: hidden;
 `;
 
 const ContentWrapper = styled.div`
