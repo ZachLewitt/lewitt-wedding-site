@@ -38,6 +38,7 @@ const PageContainer = styled.div`
   flex-direction: column;
   position: relative;
   height: 100%;
+  max-width: 100vw;
 `;
 
 const ContentWrapper = styled.div`
