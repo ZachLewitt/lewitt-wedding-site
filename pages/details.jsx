@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { FaMailBulk, FaHotel, FaList } from "react-icons/fa";
 import { Text } from "@components/text";
 import { PageWrapper } from "@components/page-wrapper";
 import { TextSection } from "@components/section";
@@ -18,6 +19,7 @@ import { Separator } from "@components/separator";
 import image from "../public/details.jpg";
 import lindosBay from "../public/lindos-bay.jpg";
 import beachHoliday from "../public/beach-holiday.jpg";
+import styled from "styled-components";
 
 export default function Details() {
   return (
@@ -143,15 +145,43 @@ const MoreInfo = () => (
       <Text>See the links below for more info about the wedding.</Text>
     </TextSection>
     <CardList>
-      <CardListItem fade right>
-        <Link href="/rsvp">Rsvp</Link>
-      </CardListItem>
-      <CardListItem fade right>
-        <Link href="/itinerary">Itinerary</Link>
-      </CardListItem>
-      <CardListItem fade right>
-        <Link href="/accommodation">Accommodation</Link>
-      </CardListItem>
+      <StyledCardListItem fade right>
+        <FaMailBulk size="1.9rem" />
+        <StyledLink href="/rsvp">Rsvp</StyledLink>
+      </StyledCardListItem>
+      <StyledCardListItem fade right>
+        <FaList size="1.9rem" />
+        <StyledLink href="/itinerary">Itinerary</StyledLink>
+      </StyledCardListItem>
+      <StyledCardListItem fade right>
+        <FaHotel size="1.9rem" />
+        <StyledLink href="/accommodation">Accommodation</StyledLink>
+      </StyledCardListItem>
     </CardList>
   </>
 );
+
+const StyledCardListItem = styled(CardListItem)`
+  display: flex;
+  align-items: center;
+  position: relative;
+`;
+
+const StyledLink = styled.a`
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: ${({ theme }) => theme.font.content};
+  font-size: ${({ theme }) => theme.fontSize.medium};
+  font-weight: bold;
+
+  text-decoration: none;
+  color: ${({ theme }) => theme.colors.contentForeground};
+`
