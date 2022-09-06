@@ -158,7 +158,7 @@ const MoreInfo = () => (
       <StyledCardListItem fade right>
         <FaMailBulk size="1.9rem" />
         <Link href="/rsvp" passHref>
-          <StyledLink>Rsvp</StyledLink>
+          <StyledLink>RSVP</StyledLink>
         </Link>
       </StyledCardListItem>
       <StyledCardListItem fade right>

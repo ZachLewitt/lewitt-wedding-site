@@ -37,8 +37,9 @@ const PageContainer = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
-  width: 100%;
   height: 100%;
+  max-width: 100vw;
+  overflow: hidden;
 `;
 
 const ContentWrapper = styled.div`
