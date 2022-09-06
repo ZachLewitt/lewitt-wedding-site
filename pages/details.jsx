@@ -76,14 +76,19 @@ const Wedding = () => (
         overlooking the bay.
       </Text>
       <Text>
-        We are expecting the temperature to be a little bit hotter than a usual
-        british wedding so make sure to prioritise comfort in the outfit you
-        choose to wear.
+        We will be arranging transportation for guests to the chapel. Please let
+        us know where you'll be staying so that we can ensure you are picked up.
       </Text>
       <Text>
-        After the ceremony we will then be taking a short boat ride to the
-        reception venue, Skala Beach Restaurant. It's here we will spend the
-        rest of the evening.
+        We are expecting the temperature to be a little bit hotter than a usual
+        british wedding so make sure to prioritise comfort in the outfit you
+        choose to wear. Ladies, please be aware our reception venue is located
+        on the beach so please be careful when choosing your heel type.
+      </Text>
+      <Text>
+        The ceremony will be followed by a champagne cruise to the reception
+        venue, Skala Beach Restaurant. It's here we will spend the rest of the
+        evening.
       </Text>
     </TextSection>
     <CardContainer>
@@ -105,15 +110,19 @@ const Holiday = () => (
   <>
     <TextSection title="Holiday">
       <Text>
-        We are making a holiday out of it with with some of the wedding party
-        joining us to stay in a lovely town town called Pefkos which is just a
-        10 minute drive from Lindos for a week!
+        We are planning to make a weeks holiday out of the event. We will be
+        staying in a lovely town called Pefkos which is just a 10 minute drive
+        from Lindos.
       </Text>
       <Text>
         Both Lindos and Pefkos are beautiful towns in Rhodes with plenty to do
         alongside many bars, restaurants, activities and beaches at both. Both
         cater for families and adults depending on how you see you time spent in
-        Rhodes!
+        Rhodes.
+      </Text>
+      <Text>
+        If you are also planning on making a holiday out of the trip then let us
+        know and we can arrange some meet ups.
       </Text>
     </TextSection>
     <CardContainer>
@@ -136,26 +145,33 @@ const MoreInfo = () => (
     <TextSection title="See you there?">
       <Text>
         We hope you can join us for our big day but if the travel is too far
-        then we would love to celebrate when we are back in the UK.
+        then we would love to celebrate when we are back in the UK. If you are
+        planning on coming then thats great!
       </Text>
       <Text>
-        If you are planning on coming then thats great! Let us know by filling
-        out our <Link href="/rsvp">RSVP form</Link>.
+        Let us know either way if you can make it or not by filling out our{" "}
+        <Link href="/rsvp">RSVP form</Link>.
       </Text>
       <Text>See the links below for more info about the wedding.</Text>
     </TextSection>
     <CardList>
       <StyledCardListItem fade right>
         <FaMailBulk size="1.9rem" />
-        <StyledLink href="/rsvp">Rsvp</StyledLink>
+        <Link href="/rsvp" passHref>
+          <StyledLink>Rsvp</StyledLink>
+        </Link>
       </StyledCardListItem>
       <StyledCardListItem fade right>
         <FaList size="1.9rem" />
-        <StyledLink href="/itinerary">Itinerary</StyledLink>
+        <Link href="/itinerary" passHref>
+          <StyledLink>Itinerary</StyledLink>
+        </Link>
       </StyledCardListItem>
       <StyledCardListItem fade right>
         <FaHotel size="1.9rem" />
-        <StyledLink href="/accommodation">Accommodation</StyledLink>
+        <Link href="/accommodation" passHref>
+          <StyledLink>Accommodation</StyledLink>
+        </Link>
       </StyledCardListItem>
     </CardList>
   </>
@@ -184,4 +200,4 @@ const StyledLink = styled.a`
 
   text-decoration: none;
   color: ${({ theme }) => theme.colors.contentForeground};
-`
+`;

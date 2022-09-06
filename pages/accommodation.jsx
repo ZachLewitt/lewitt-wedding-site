@@ -1,5 +1,5 @@
+import Link from "next/link";
 import image from "../public/accommodation.jpg";
-import blueDreamImage from "../public/blue-dream-villas.jpg";
 import hotelPoolImage from "../public/hotel-pool.jpg";
 import { Text } from "@components/text";
 import { PageWrapper } from "@components/page-wrapper";
@@ -7,16 +7,7 @@ import { TextSection } from "@components/section";
 import { Map } from "@components/map";
 import { AccommodationList } from "@components/accommodation";
 import { Card, CardContainer, CardImage } from "@components/cards";
-
-const accommodations = [
-  {
-    name: "Blue Dream Luxury Villas",
-    image: blueDreamImage,
-    link: "https://www.bluedreamvillas.gr/en/content?id=3247",
-    description:
-      "Luxury villas in Pefkos, that would suit a family or larger group.",
-  },
-];
+import { LinkItem, LinkList } from "@components/link-list";
 
 export default function Details() {
   return (
@@ -35,6 +26,11 @@ export default function Details() {
           Lindos on the east coast of the island. As the island is relatively
           large it can take some time to travel from one side to the other.
         </Text>
+        <Text>
+          Once you have sorted your accommodation then please let us know where
+          you are staying so that we can arrange transportation for the wedding
+          day.
+        </Text>
       </TextSection>
       <CardContainer>
         <CardImage
@@ -51,10 +47,12 @@ export default function Details() {
       <TextSection title="Pefkos">
         <Text>
           We will be staying in the resort town of Pefkos and recommend it to
-          others who are unsure of where to stay. Pefkos is a lively town with
-          plenty of bars and restaurants to keep you busy. It is also only 2.5
-          miles from Lindos which will make getting to and from the venue on the
-          day easy.
+          others who are unsure of where to stay.
+        </Text>
+        <Text>
+          Pefkos is a lively town with plenty of bars and restaurants to keep
+          you busy. It is also only 2.5 miles from Lindos which will make
+          getting to and from the venue on the day easy.
         </Text>
       </TextSection>
       <CardContainer>
@@ -64,12 +62,26 @@ export default function Details() {
       </CardContainer>
       <TextSection title="Recommendations">
         <Text>
-          If you're looking for some inspiration on places to stay then below is
-          a list of a few hotels that we've picked out close to the wedding
-          venue.
+          There are plenty of travel agents through which you can book various
+          hotel packages deals. For example:
+        </Text>
+        <LinkList>
+          <LinkItem href="https://www.tui.co.uk/">TUI</LinkItem>
+          <LinkItem href="https://www.jet2holidays.com/">Jet2Holidays</LinkItem>
+          <LinkItem href="https://www.easyjet.com/en/holidays">
+            Easy Jet Holidays
+          </LinkItem>
+          <LinkItem href="https://www.britishairways.com/en-gb/flights-and-holidays/holidays">
+            British Airways Holidays
+          </LinkItem>
+        </LinkList>
+        <Text>
+          If you fancy a more bespoke holiday and are looking for some
+          inspiration then below is a list of a few hotels and villas that we've
+          picked out close to where we will be staying in Pefkos.
         </Text>
       </TextSection>
-      <AccommodationList accommodations={accommodations} />
+      <AccommodationList />
     </PageWrapper>
   );
 }

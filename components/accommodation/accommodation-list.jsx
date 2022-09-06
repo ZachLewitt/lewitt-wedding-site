@@ -3,8 +3,9 @@ import Image from "next/image";
 import { CardList, CardListItem } from "@components/cards";
 import { Text } from "@components/text";
 import { ActionButton } from "@components/buttons";
+import { accommodations } from "./accommodation-data";
 
-export const AccommodationList = ({ accommodations }) => {
+export const AccommodationList = () => {
   return (
     <CardList>
       {accommodations.map((x) => (
@@ -95,6 +96,6 @@ const StyledButton = styled(ActionButton)`
     grid-column: 1 / span 2;
 
     justify-self: center;
-    width: 80%;
+    width: 100%;
   }
 `;

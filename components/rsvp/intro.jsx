@@ -1,5 +1,5 @@
 import { Section } from "@components/section";
-import { Text } from "@components/text"; 
+import { Text } from "@components/text";
 
 export const Intro = () => {
   return (
@@ -17,9 +17,12 @@ export const Intro = () => {
         you!
       </Text>
       <Text>
-        Below is our RSVP form if you could take the time to submit your
-        details, even if you are not attending, then it would be greatly
+        Below is our RSVP form if you could take the time to submit details for
+        each person, even if you are not attending, then it would be greatly
         appreciated.
+      </Text>
+      <Text bold>
+        Please RSVP before February 2023 so that we can book your place.
       </Text>
     </Section>
   );
