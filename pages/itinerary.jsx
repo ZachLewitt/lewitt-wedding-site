@@ -23,12 +23,12 @@ export default function Itinerary() {
           </DayHeader>
           <EventList>
             <Event>
-              <Time bold>2:30pm</Time>
+              <Time bold>2:00pm</Time>
               <StyledText>Pick up</StyledText>
             </Event>
             <Event>
-              <Time bold>3:00pm</Time>
-              <StyledText>Welcome drinks</StyledText>
+              <Time bold>2:30pm</Time>
+              <StyledText>Welcome drinks at Yannis Bar</StyledText>
             </Event>
             <Event>
               <Time bold>3:45pm</Time>
@@ -39,11 +39,11 @@ export default function Itinerary() {
               <StyledText>Ceremony</StyledText>
             </Event>
             <Event>
-              <Time bold>5:30pm</Time>
+              <Time bold>4:45pm</Time>
               <StyledText>Champagne Cruise</StyledText>
             </Event>
             <Event>
-              <Time bold>7:00pm</Time>
+              <Time bold>6:30pm</Time>
               <StyledText>Dinner at Skala Beach</StyledText>
             </Event>
             <Event>
